@@ -1,0 +1,31 @@
+<!-- Header Component -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4">
+    <!-- Top Bar -->
+    <div class="flex items-center justify-between py-3 border-b">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <i class="fas fa-heart text-pink-500 text-3xl"></i>
+        <div>
+          <h1 class="text-xl font-bold text-gray-800"><%= config.appName %></h1>
+          <p class="text-xs text-gray-600">Little Roses Foundation</p>
+        </div>
+      </div>
+      
+      <!-- CTA Button -->
+      <a href="/donate" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full font-semibold transition-colors">
+        <i class="fas fa-hand-holding-heart mr-2"></i>Đóng góp ngay
+      </a>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="py-4">
+      <ul class="flex space-x-8">
+        <li><a href="/" class="<%= page === 'home' ? 'text-pink-500 font-semibold' : 'text-gray-700' %> hover:text-pink-500 transition-colors">Trang chủ</a></li>
+        <li><a href="/about" class="<%= page === 'about' ? 'text-pink-500 font-semibold' : 'text-gray-700' %> hover:text-pink-500 transition-colors">Về chúng tôi</a></li>
+        <li><a href="/programs" class="<%= page === 'programs' ? 'text-pink-500 font-semibold' : 'text-gray-700' %> hover:text-pink-500 transition-colors">Chương trình</a></li>
+        <li><a href="/news" class="<%= page === 'news' ? 'text-pink-500 font-semibold' : 'text-gray-700' %> hover:text-pink-500 transition-colors">Tin tức</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

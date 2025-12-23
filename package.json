@@ -1,0 +1,42 @@
+{
+  "name": "lr-foundation-web",
+  "version": "1.0.0",
+  "description": "Website Quỹ Bông Hồng Nhỏ - Little Roses Foundation",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "build:css": "tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --minify",
+    "watch:css": "tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "charity",
+    "foundation",
+    "nonprofit",
+    "donation",
+    "vietnamese"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hayamij/LR-Foundation-WEB.git"
+  },
+  "author": "LR Foundation Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hayamij/LR-Foundation-WEB/issues"
+  },
+  "homepage": "https://github.com/hayamij/LR-Foundation-WEB#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "tailwindcss": "^3.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

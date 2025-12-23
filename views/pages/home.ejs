@@ -1,0 +1,66 @@
+<%- include('../layouts/main', { body: `
+<div class="bg-gradient-to-b from-pink-50 to-white">
+  <!-- Hero Section -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="text-center max-w-4xl mx-auto">
+      <h1 class="text-5xl font-bold text-gray-800 mb-6">
+        Kết nối những tấm lòng <span class="text-pink-500">nhân ái</span>
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Cùng nhau xây dựng tương lai tốt đẹp hơn cho trẻ em và cộng đồng
+      </p>
+      <a href="/donate" class="inline-block bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+        <i class="fas fa-heart mr-2"></i>Đóng góp ngay
+      </a>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <i class="fas fa-users text-pink-500 text-5xl mb-4"></i>
+        <h3 class="text-4xl font-bold text-gray-800 mb-2">1,000+</h3>
+        <p class="text-gray-600">Người thụ hưởng</p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <i class="fas fa-project-diagram text-pink-500 text-5xl mb-4"></i>
+        <h3 class="text-4xl font-bold text-gray-800 mb-2">50+</h3>
+        <p class="text-gray-600">Dự án đã thực hiện</p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <i class="fas fa-hand-holding-heart text-pink-500 text-5xl mb-4"></i>
+        <h3 class="text-4xl font-bold text-gray-800 mb-2">500+</h3>
+        <p class="text-gray-600">Nhà tài trợ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Preview -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Chương trình của chúng tôi</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <a href="/programs/education" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+        <i class="fas fa-graduation-cap text-pink-500 text-4xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Giáo dục</h3>
+        <p class="text-gray-600 text-sm">Hỗ trợ học bổng và phát triển giáo dục</p>
+      </a>
+      <a href="/programs/healthcare" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+        <i class="fas fa-heartbeat text-pink-500 text-4xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Y tế</h3>
+        <p class="text-gray-600 text-sm">Chăm sóc sức khỏe cho cộng đồng</p>
+      </a>
+      <a href="/programs/social" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+        <i class="fas fa-hands-helping text-pink-500 text-4xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Bác ái</h3>
+        <p class="text-gray-600 text-sm">Hỗ trợ người khó khăn trong xã hội</p>
+      </a>
+      <a href="/programs/fundraising" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+        <i class="fas fa-donate text-pink-500 text-4xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Gây quỹ</h3>
+        <p class="text-gray-600 text-sm">Các chiến dịch kêu gọi ủng hộ</p>
+      </a>
+    </div>
+  </section>
+</div>
+` }) %>
