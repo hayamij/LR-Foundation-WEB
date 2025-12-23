@@ -13,7 +13,7 @@
 
 Dự án **LR Foundation WEB UI** là một giải pháp website thiện nguyện toàn diện, được thiết kế nhằm mục đích số hóa các hoạt động của **Quỹ Bông Hồng Nhỏ**. Sản phẩm tập trung vào trải nghiệm người dùng (UX), tính minh bạch trong hoạt động và khả năng tương thích đa nền tảng.
 
-]Sản phẩm bám sát các yêu cầu thực tế của dự án về tính năng quyên góp, hiển thị báo cáo minh bạch và tối ưu hiệu suất tải trang.
+Sản phẩm bám sát các yêu cầu thực tế của dự án về tính năng quyên góp, hiển thị báo cáo minh bạch và tối ưu hiệu suất tải trang.
 
 ## Tính năng nổi bật (Key Features)
 
@@ -27,7 +27,7 @@ Dựa trên yêu cầu sản phẩm:
 
 ## Công nghệ sử dụng (Tech Stack)
 
-[cite_start]Dự án được xây dựng với tiêu chí "Đơn giản - Hiệu quả - Dễ bảo trì":
+Dự án được xây dựng với tiêu chí "Đơn giản - Hiệu quả - Dễ bảo trì":
 
 * **Core:** Node.js
 * **Framework:** Express.js (Xử lý routing và server-side logic nhẹ)
@@ -37,7 +37,7 @@ Dựa trên yêu cầu sản phẩm:
 
 ## 🗺 Sitemap & Kiến trúc thông tin
 
-[cite_start]Cấu trúc website tuân thủ sitemap yêu cầu[cite: 9]:
+Cấu trúc website tuân thủ sitemap yêu cầu:
 
 | Main Navigation | Sub-sections |
 | :--- | :--- |
