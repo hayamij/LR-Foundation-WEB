@@ -35,7 +35,13 @@
     <%- include('../partials/footer') %>
     
     <!-- Scripts -->
-    <script src="/dist/js/main.bundle.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/universal.js"></script>
+    
+    <!-- Page-specific Scripts -->
+    <% if (typeof pageScript !== 'undefined' && pageScript) { %>
+        <script src="/js/<%= pageScript %>"></script>
+    <% } %>
     
     <!-- Additional Scripts -->
     <%- typeof additionalScripts !== 'undefined' ? additionalScripts : '' %>

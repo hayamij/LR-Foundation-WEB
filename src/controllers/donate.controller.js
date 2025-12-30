@@ -12,7 +12,8 @@ exports.getDonatePage = (req, res) => {
   res.render('pages/donate', {
     pageTitle: 'Quyên góp',
     pageDescription: 'Quyên góp để hỗ trợ trẻ em Việt Nam cùng Quỹ Bông Hồng Nhỏ',
-    layout: 'layouts/main'
+    layout: 'layouts/main',
+    pageScript: 'donate.js'
   });
 };
 
