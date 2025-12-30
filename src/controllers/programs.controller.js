@@ -1,57 +1,25 @@
-const config = require('../config/app.config');
-const contentService = require('../services/content.service');
+const path = require('path');
 
 exports.getProgramsPage = (req, res) => {
-  const statistics = contentService.getStatistics();
-  
-  res.render('pages/programs', {
-    title: 'Chương trình - Dự án',
-    config: config,
-    page: 'programs',
-    statistics
-  });
+  res.sendFile(path.join(__dirname, '../../views/programs.html'));
+};
+
+exports.getProgramDetail = (req, res) => {
+  res.sendFile(path.join(__dirname, '../../views/programsDetail.html'));
 };
 
 exports.getEducationPage = (req, res) => {
-  const educationPrograms = contentService.getEducationPrograms();
-  
-  res.render('pages/programs/education', {
-    title: 'Hỗ trợ Giáo dục',
-    config: config,
-    page: 'programs',
-    programs: educationPrograms
-  });
+  res.sendFile(path.join(__dirname, '../../views/programs.html'));
 };
 
 exports.getHealthcarePage = (req, res) => {
-  const healthcarePrograms = contentService.getHealthcarePrograms();
-  
-  res.render('pages/programs/healthcare', {
-    title: 'Y tế & Sức khỏe',
-    config: config,
-    page: 'programs',
-    programs: healthcarePrograms
-  });
+  res.sendFile(path.join(__dirname, '../../views/programs.html'));
 };
 
 exports.getSocialPage = (req, res) => {
-  const socialPrograms = contentService.getSocialPrograms();
-  
-  res.render('pages/programs/social', {
-    title: 'Bác ái xã hội',
-    config: config,
-    page: 'programs',
-    programs: socialPrograms
-  });
+  res.sendFile(path.join(__dirname, '../../views/programs.html'));
 };
 
 exports.getFundraisingPage = (req, res) => {
-  const fundraisingInfo = contentService.getFundraisingInfo();
-  
-  res.render('pages/programs/fundraising', {
-    title: 'Gây quỹ',
-    config: config,
-    page: 'programs',
-    fundraising: fundraisingInfo
-  });
+  res.sendFile(path.join(__dirname, '../../views/programs.html'));
 };

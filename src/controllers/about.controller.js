@@ -1,32 +1,15 @@
-const config = require('../config/app.config');
-const contentService = require('../services/content.service');
+const path = require('path');
 
 exports.getAboutPage = (req, res) => {
-    const visionMission = contentService.getVisionMission();
-    const teamMembers = contentService.getTeamMembers();
-    
-    res.render('pages/about', {
-      title: 'Về chúng tôi',
-      config: config,
-      page: 'about',
-      visionMission,
-      teamMembers
-    });
+    res.sendFile(path.join(__dirname, '../../views/about.html'));
 };
 
 exports.getVisionPage = (req, res) => {
-    const visionMission = contentService.getVisionMission();
-    
-    res.render('pages/about/vision', {
-      title: 'Tầm nhìn & Sứ mệnh',
-      config: config,
-      page: 'about',
-      visionMission
-    });
+    res.sendFile(path.join(__dirname, '../../views/about.html'));
 };
 
 exports.getTeamPage = (req, res) => {
-    const teamMembers = contentService.getTeamMembers();
+    res.sendFile(path.join(__dirname, '../../views/about.html'));
     
     res.render('pages/about/team', {
       title: 'Đội ngũ nhân sự',
