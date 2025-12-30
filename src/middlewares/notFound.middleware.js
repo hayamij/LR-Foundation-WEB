@@ -8,8 +8,8 @@ module.exports = (req, res, next) => {
             <title>404 - Không tìm thấy trang</title>
             <style>
                 body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-                h1 { color: #ec1313; }
-                a { color: #ec1313; text-decoration: none; }
+                h1 { color: #B12029; }
+                a { color: #2A7050; text-decoration: none; }
             </style>
         </head>
         <body>

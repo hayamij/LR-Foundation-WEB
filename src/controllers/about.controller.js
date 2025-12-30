@@ -10,11 +10,4 @@ exports.getVisionPage = (req, res) => {
 
 exports.getTeamPage = (req, res) => {
     res.sendFile(path.join(__dirname, '../../views/about.html'));
-    
-    res.render('pages/about/team', {
-      title: 'Đội ngũ nhân sự',
-      config: config,
-      page: 'about',
-      teamMembers
-    });
 };
