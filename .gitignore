@@ -1,4 +1,27 @@
-materials/
+# Environment
 .env
+
+# Dependencies
 node_modules/
+
+# Build files
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Materials (development docs)
+materials/
 package-lock.json

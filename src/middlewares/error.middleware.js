@@ -14,8 +14,8 @@ module.exports = (err, req, res, next) => {
             <title>Lỗi - ${statusCode}</title>
             <style>
                 body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-                h1 { color: #ec1313; }
-                a { color: #ec1313; text-decoration: none; }
+                h1 { color: #B12029; }
+                a { color: #2A7050; text-decoration: none; }
                 pre { text-align: left; background: #f5f5f5; padding: 20px; border-radius: 5px; overflow: auto; }
             </style>
         </head>

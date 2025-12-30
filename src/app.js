@@ -1,6 +1,6 @@
 /**
  * Express Application Configuration
- * LR Foundation WEB UI
+ * LR Foundation WEB
  */
 
 const express = require('express');
@@ -22,7 +22,7 @@ const notFoundHandler = require('./middlewares/notFound.middleware');
 
 const app = express();
 
-// View engine setup - serving static HTML files
+// View engine setup
 app.set('views', path.join(__dirname, '../views'));
 
 // Middleware

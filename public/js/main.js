@@ -1,12 +1,9 @@
 /**
- * Main JavaScript File
- * LR Foundation WEB UI
+ * Main JavaScript - LR Foundation Website
+ * Core functionality and animations
  */
 
-// Mobile menu toggle (for future implementation)
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('LR Foundation - Website loaded');
-  
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -21,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Add fade-in animation on scroll
+  // Fade-in animation on scroll
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -35,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  // Observe all cards and sections
   document.querySelectorAll('.card, section').forEach(el => {
     observer.observe(el);
   });
