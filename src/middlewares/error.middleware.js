@@ -1,8 +1,3 @@
-/**
- * Middleware - Error Handler
- * Xử lý lỗi tập trung
- */
-
 module.exports = (err, req, res, next) => {
   console.error('Error:', err.message);
   console.error(err.stack);

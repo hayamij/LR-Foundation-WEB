@@ -1,7 +1,3 @@
-/**
- * Routes - Programs (Chương trình - Dự án)
- */
-
 const express = require('express');
 const router = express.Router();
 const programsController = require('../controllers/programs.controller');
