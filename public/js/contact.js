@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showErrorModal('Có lỗi xảy ra. Vui lòng thử lại sau.');
       }
     } catch (error) {
-      console.error('Contact form error:', error);
       showErrorModal('Có lỗi xảy ra. Vui lòng thử lại sau.');
     } finally {
       submitButton.disabled = false;

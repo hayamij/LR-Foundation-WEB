@@ -1,6 +1,9 @@
 module.exports = (err, req, res, next) => {
-    console.error('Error:', err.message);
-    console.error(err.stack);
+    // Log errors in development mode only
+    if (process.env.NODE_ENV === 'development') {
+        console.error('\x1b[31mError:\x1b[0m', err.message);
+        console.error(err.stack);
+    }
 
     const statusCode = err.statusCode || 500;
     const message = err.message || 'Đã xảy ra lỗi hệ thống';

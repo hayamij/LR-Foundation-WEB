@@ -159,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showErrorModal(result.error || 'Có lỗi xảy ra. Vui lòng thử lại.');
       }
     } catch (error) {
-      console.error('Donation error:', error);
       showErrorModal('Có lỗi xảy ra. Vui lòng thử lại.');
     } finally {
       submitButton.disabled = false;

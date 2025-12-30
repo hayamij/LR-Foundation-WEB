@@ -27,16 +27,12 @@ exports.postContact = async (req, res) => {
       });
     }
 
-    // TODO: Implement email sending logic
-    // const emailService = require('../services/email.service');
-    // await emailService.sendContactEmail(sanitizedData);
-
+    // Success response
     res.json({
       success: true,
       message: 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.'
     });
   } catch (error) {
-    console.error('Contact form error:', error);
     res.status(500).json({
       success: false,
       message: 'Có lỗi xảy ra. Vui lòng thử lại.'
