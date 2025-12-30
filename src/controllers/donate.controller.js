@@ -1,20 +1,13 @@
-const config = require('../config/app.config');
+const path = require('path');
 const donationService = require('../services/donation.service');
 const { sendSuccess, sendError } = require('../utils/response.util');
 
 exports.getDonatePage = (req, res) => {
-  const donationMethods = donationService.getDonationMethods();
-  const suggestedAmounts = donationService.getSuggestedAmounts();
-  const donationPrograms = donationService.getDonationPrograms();
-  
-  res.render('pages/donate', {
-    title: 'Đóng góp ngay',
-    config: config,
-    page: 'donate',
-    donationMethods,
-    suggestedAmounts,
-    donationPrograms
-  });
+  res.sendFile(path.join(__dirname, '../../views/quyengop.html'));
+};
+
+exports.getDonateConfirmPage = (req, res) => {
+  res.sendFile(path.join(__dirname, '../../views/quyengopConfirm.html'));
 };
 
 exports.postDonation = async (req, res) => {

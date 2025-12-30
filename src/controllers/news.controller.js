@@ -1,48 +1,21 @@
-const config = require('../config/app.config');
-const contentService = require('../services/content.service');
+const path = require('path');
 
 exports.getNewsPage = (req, res) => {
-  const reports = contentService.getReports().slice(0, 2);
-  const stories = contentService.getImpactStories().slice(0, 2);
-  
-  res.render('pages/news', {
-    title: 'Tin tức & Tài liệu',
-    config: config,
-    page: 'news',
-    latestReports: reports,
-    latestStories: stories
-  });
+  res.sendFile(path.join(__dirname, '../../views/news.html'));
+};
+
+exports.getNewsDetail = (req, res) => {
+  res.sendFile(path.join(__dirname, '../../views/newsDetail.html'));
 };
 
 exports.getReportsPage = (req, res) => {
-  const reports = contentService.getReports();
-  
-  res.render('pages/news/reports', {
-    title: 'Báo cáo',
-    config: config,
-    page: 'news',
-    reports
-  });
+  res.sendFile(path.join(__dirname, '../../views/news.html'));
 };
 
 exports.getStoriesPage = (req, res) => {
-  const stories = contentService.getImpactStories();
-  
-  res.render('pages/news/stories', {
-    title: 'Câu chuyện tác động',
-    config: config,
-    page: 'news',
-    stories
-  });
+  res.sendFile(path.join(__dirname, '../../views/news.html'));
 };
 
 exports.getDocumentsPage = (req, res) => {
-  const documents = contentService.getDocuments();
-  
-  res.render('pages/news/documents', {
-    title: 'Tài liệu tham khảo',
-    config: config,
-    page: 'news',
-    documents
-  });
+  res.sendFile(path.join(__dirname, '../../views/news.html'));
 };

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chi Tiết Tin Tức - Quỹ Bông Hồng Nhỏ</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2A7050",
+              "primary-dark": "#1e523a",
+              secondary: "#B12029",
+              "secondary-dark": "#8a1920",
+              "background-light": "#f8fafc",
+              "background-dark": "#111827",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1f2937",
+              "text-light": "#334155",
+              "text-dark": "#e2e8f0",
+            },
+            fontFamily: {
+              display: ["Montserrat", "Arial", "sans-serif"],
+              body: ["Arial", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .prose-custom {
+          @apply text-text-light dark:text-gray-300 leading-relaxed;
+        }
+        .prose-custom p {
+          @apply mb-4;
+        }
+        .prose-custom h2 {
+          @apply text-2xl font-bold text-text-light dark:text-white mt-8 mb-4 flex items-center gap-2;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300 flex flex-col min-h-screen"
+  >
+    <header data-component="header" class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark shadow-md"></header>
+    <main class="flex-grow">
+      <div class="layout-container flex flex-col items-center w-full">
+        <div
+          class="w-full max-w-[1280px] px-4 sm:px-6 md:px-10 pt-4 md:pt-6 pb-2"
+        >
+          <div class="flex flex-wrap items-center gap-2 text-xs md:text-sm">
+            <a
+              class="text-gray-500 hover:text-primary font-medium transition-colors"
+              href="#"
+              >Trang chủ</a
+            >
+            <span class="text-gray-500/60 font-medium">/</span>
+            <a
+              class="text-gray-500 hover:text-primary font-medium transition-colors"
+              href="#"
+              >Tin tức</a
+            >
+            <span class="text-gray-500/60 font-medium">/</span>
+            <span
+              class="text-text-light dark:text-gray-300 font-bold truncate max-w-[150px] sm:max-w-[300px] md:max-w-none"
+              >Hoạt động từ thiện</span
+            >
+          </div>
+        </div>
+        <div
+          class="w-full max-w-[1280px] px-4 sm:px-6 md:px-10 pb-12 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 mt-4"
+        >
+          <article class="lg:col-span-8 flex flex-col gap-6 md:gap-8">
+            <div
+              class="flex flex-col gap-3 md:gap-4 border-b border-[#f4f0f0] dark:border-[#3a2020] pb-6"
+            >
+              <div class="inline-flex">
+                <span
+                  class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider"
+                  >Hoạt động nổi bật</span
+                >
+              </div>
+              <h1
+                class="text-text-light dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight tracking-[-0.02em] font-display"
+              >
+                Trao Tặng 500 Suất Quà Cho Trẻ Em Vùng Cao Tại Hà Giang
+              </h1>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-2"
+              >
+                <div
+                  class="flex flex-wrap items-center gap-3 text-gray-500 dark:text-gray-400 text-xs sm:text-sm font-medium"
+                >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-icons text-[16px] md:text-[18px]"
+                      >calendar_today</span
+                    >
+                    <span>20/10/2023</span>
+                  </div>
+                  <span class="hidden sm:inline opacity-50">•</span>
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-icons text-[16px] md:text-[18px]"
+                      >person</span
+                    >
+                    <span>Đăng bởi Admin</span>
+                  </div>
+                  <span class="hidden sm:inline opacity-50">•</span>
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-icons text-[16px] md:text-[18px]"
+                      >visibility</span
+                    >
+                    <span>1.2k lượt xem</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 self-start sm:self-auto">
+                  <button
+                    class="size-8 md:size-9 rounded-full bg-[#f4f0f0] dark:bg-[#2f1a1a] hover:bg-[#1877F2] hover:text-white text-text-light dark:text-gray-200 flex items-center justify-center transition-colors group"
+                    title="Chia sẻ lên Facebook"
+                  >
+                    <span
+                      class="material-icons text-[18px] md:text-[20px]"
+                      >share</span
+                    >
+                  </button>
+                  <button
+                    class="size-8 md:size-9 rounded-full bg-[#f4f0f0] dark:bg-[#2f1a1a] hover:bg-primary hover:text-white text-text-light dark:text-gray-200 flex items-center justify-center transition-colors group"
+                    title="Yêu thích"
+                  >
+                    <span
+                      class="material-icons text-[18px] md:text-[20px]"
+                      >favorite</span
+                    >
+                  </button>
+                  <button
+                    class="size-8 md:size-9 rounded-full bg-[#f4f0f0] dark:bg-[#2f1a1a] hover:bg-gray-600 hover:text-white text-text-light dark:text-gray-200 flex items-center justify-center transition-colors group"
+                    title="Sao chép liên kết"
+                  >
+                    <span
+                      class="material-icons text-[18px] md:text-[20px]"
+                      >link</span
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-full rounded-xl lg:rounded-2xl overflow-hidden shadow-sm aspect-video relative group"
+            >
+              <img
+                alt="Trao quà cho trẻ em"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                data-alt="Charity volunteers distributing gifts to smiling children in a mountainous region"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTCwDW1-7YoS6-Uh8MLYYSAgwMbpeW6R3v3xKr0J-S0KPRqxrEo01t5Sn496B_Aw06u83DojHQTYoJ9VjeaYgNtnsgbggFGqzStNgKKtiExYhaVXO7gw6mKlMUfxV8iBloZVeAMyzKZSQ-kltc07vxfN1hFa8OYI1ePuwBmTX07Yx4X1NShqBEw8tnzbpGNDgf3PNIiL-9L-VYBKk4MyTzPzOIZbLM1wPs-WChdzDZ9czhmh7kdHSTLBREsEzgnADe8cgRXZlBI9g"
+              />
+              <div
+                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 md:p-6 pt-12"
+              >
+                <p
+                  class="text-white text-xs md:text-sm font-medium opacity-90 italic"
+                >
+                  Nụ cười rạng rỡ của các em nhỏ khi nhận được những phần quà ý
+                  nghĩa tại điểm trường Lũng Cú.
+                </p>
+              </div>
+            </div>
+            <div
+              class="prose prose-base md:prose-lg prose-red max-w-none text-text-light dark:text-gray-300 leading-relaxed font-normal"
+            >
+              <p
+                class="font-medium text-lg md:text-xl leading-relaxed text-gray-800 dark:text-gray-200 drop-cap"
+              >
+                Trong không khí se lạnh của những ngày đầu đông, đoàn thiện
+                nguyện "Bông Hồng Nhỏ" đã có mặt tại xã Lũng Cú, huyện Đồng Văn,
+                tỉnh Hà Giang để trao tận tay 500 suất quà cho các em học sinh
+                có hoàn cảnh khó khăn.
+              </p>
+              <p>
+                Hành trình đến với điểm trường không hề dễ dàng. Vượt qua hơn
+                300km đường đèo dốc hiểm trở, những khúc cua tay áo đầy thử
+                thách, các thành viên trong đoàn vẫn giữ vững tinh thần nhiệt
+                huyết. Mỗi phần quà bao gồm áo ấm, sách vở, dụng cụ học tập và
+                nhu yếu phẩm cần thiết cho mùa đông. Tổng trị giá đợt quyên góp
+                lên tới hơn 200 triệu đồng.
+              </p>
+              <blockquote
+                class="not-prose my-6 md:my-8 pl-6 border-l-4 border-primary bg-[#fff5f5] dark:bg-[#2f1a1a] dark:border-red-500 py-4 pr-4 rounded-r-lg italic text-gray-700 dark:text-gray-300 relative overflow-hidden"
+              >
+                <span
+                  class="absolute top-2 left-2 text-6xl text-primary/10 font-serif leading-none z-0"
+                  >“</span
+                >
+                <div class="relative z-10">
+                  "Nhìn thấy các em nhỏ co ro trong tấm áo mỏng manh giữa cái
+                  rét vùng cao, chúng tôi không khỏi xót xa. Hy vọng những chiếc
+                  áo ấm này sẽ giúp các em có một mùa đông ấm áp hơn để yên tâm
+                  đến trường." <br />
+                  <span
+                    class="block mt-2 font-bold not-italic text-primary text-sm"
+                    >— Chị Nguyễn Thị Lan, Trưởng đoàn</span
+                  >
+                </div>
+              </blockquote>
+              <h2
+                class="text-2xl font-bold text-text-light dark:text-white mt-8 mb-4 flex items-center gap-2 font-display"
+              >
+                <span
+                  class="w-1.5 h-8 bg-primary rounded-full inline-block"
+                ></span>
+                Lan tỏa yêu thương
+              </h2>
+              <p>
+                Không chỉ trao quà, đoàn còn tổ chức các hoạt động vui chơi,
+                giao lưu văn nghệ, mang lại tiếng cười sảng khoái cho các em.
+                Những trò chơi dân gian, những bài hát thiếu nhi vang lên giữa
+                núi rừng đại ngàn như xua tan đi cái lạnh giá, gắn kết tình cảm
+                giữa miền xuôi và miền ngược.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8 not-prose">
+                <div
+                  class="rounded-lg overflow-hidden h-56 md:h-64 group relative"
+                >
+                  <img
+                    alt="Hoạt động vui chơi"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    data-alt="Children playing games with volunteers outdoors"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJI8jw3OpgJmjF-okG6H-8qUvO278JzR2fbLXojgZEDlsi1TJ1t8I5Nw4eL2_L8DiAxxXRukSDdGU-NuIH17waKKX6lPZkqhoTGYB3EsH6FGt2gjAoSI3-J-mpNhbXsO5BndFZ9OJtH5H6APN1w5apBGz9_sHjA-yKiUfIUqi8BGClkVeYji-hCaajgm9Tox1e_y-Ck051xwl9hmNus9RB3fI3UbaFHYUG8a-HazG3CgjD6b4KPzUg2MgwBee8wBK13D9EfVLX5V0"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"
+                  ></div>
+                </div>
+                <div
+                  class="rounded-lg overflow-hidden h-56 md:h-64 group relative"
+                >
+                  <img
+                    alt="Chuẩn bị quà"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    data-alt="Volunteers organizing supplies and boxes"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCIDflyfm8_nur0MZen8laI1F1IIzn-8QNZ2FAi9CvsnePj0rDejcDY5dC_54-xbA-7dfYhIUcxOQDcM43r1xweXdTV15A0YZgllo5R37TSRlD6bqlnhS97rn7OPIBq_UVg1HR6SjjqJkUXBEirPR-LvikEY9AGDC_9h8s7pF4Tag3Yop8IqQA1xDJuMOSxZ8vB8UgxCVZCH3jI9AwUdotA4Z3WCQQJYJ_b5sGQVwfNn3Ivf7dWD5PzigXmLmMDPO6ecMd0-eVf7o"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"
+                  ></div>
+                </div>
+              </div>
+              <p>
+                Chương trình đã khép lại nhưng dư âm của nó vẫn còn đọng mãi.
+                Quỹ Bông Hồng Nhỏ xin gửi lời cảm ơn chân thành đến các mạnh
+                thường quân, các nhà hảo tâm đã đồng hành cùng chúng tôi. Sự
+                đóng góp của quý vị chính là nguồn động lực to lớn để chúng tôi
+                tiếp tục thực hiện sứ mệnh của mình.
+              </p>
+            </div>
+            <div
+              class="mt-8 bg-gradient-to-r from-[#fff5f5] to-white dark:from-[#2f1a1a] dark:to-[#1a0b0b] border border-red-100 dark:border-red-900 rounded-xl md:rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"
+              ></div>
+              <div
+                class="size-16 md:size-20 bg-white dark:bg-[#3a2020] rounded-full flex items-center justify-center text-primary shrink-0 shadow-md ring-4 ring-red-50 dark:ring-red-900/20 z-10"
+              >
+                <span class="material-icons text-3xl md:text-4xl"
+                  >volunteer_activism</span
+                >
+              </div>
+              <div class="flex-1 text-center md:text-left z-10">
+                <h3
+                  class="text-lg md:text-xl font-bold text-text-light dark:text-white mb-2 font-display"
+                >
+                  Chung tay vì cộng đồng
+                </h3>
+                <p
+                  class="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-0"
+                >
+                  Hãy cùng chúng tôi viết tiếp những câu chuyện đẹp. Mỗi đóng
+                  góp của bạn đều vô cùng quý giá.
+                </p>
+              </div>
+              <button
+                class="w-full md:w-auto shrink-0 bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 md:px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 z-10"
+              >
+                <span>Quyên Góp Ngay</span>
+                <span class="material-icons text-sm"
+                  >arrow_forward</span
+                >
+              </button>
+            </div>
+          </article>
+          <aside class="lg:col-span-4 flex flex-col gap-8">
+            <div
+              class="bg-white dark:bg-[#1a0b0b] rounded-xl border border-[#f4f0f0] dark:border-[#3a2020] p-5 md:p-6 shadow-sm"
+            >
+              <h3
+                class="text-lg font-bold text-text-light dark:text-white mb-4 flex items-center gap-2 border-b border-[#f4f0f0] dark:border-[#3a2020] pb-2 font-display"
+              >
+                <span class="material-icons text-primary"
+                  >breaking_news_alt_1</span
+                >
+                Tin Nổi Bật
+              </h3>
+              <div class="flex flex-col gap-5">
+                <a class="group flex gap-3 items-start" href="#">
+                  <div
+                    class="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-lg overflow-hidden bg-gray-100 relative"
+                  >
+                    <img
+                      alt="News thumb"
+                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      data-alt="Volunteer planting trees"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu_MxiulVgZZUVA7kEu4ur81POHxx08wQs8iF1D-lDXUXw_kzXV__OqGHPNchFGITjLZVxx02LSzeWlsAg2Y_iMIeq9V1E7qe0kjmNTDtXQWjxeasnu0hcEDlPDpoz-ZWVgLlpy8zXnTQyABjrWkHxQQKWAlYb8Zc6-EpgY55YIJJpiQWVPwJzWgm54xYLDtUMLKfNOnRjdoL2B8Z4DSjqYFbQO3LAmDNV69A27rh1Z0W2mMj5JBLUAiv8FtFG9UL100HCE4wKXCo"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="text-sm font-semibold text-text-light dark:text-gray-200 group-hover:text-primary transition-colors line-clamp-2 leading-snug"
+                    >
+                      Chiến dịch trồng 1000 cây xanh phủ xanh đồi trọc
+                    </h4>
+                    <div
+                      class="flex items-center gap-1 mt-1.5 text-xs text-gray-500"
+                    >
+                      <span class="material-icons text-[14px]"
+                        >calendar_today</span
+                      >
+                      <span>15/10/2023</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="group flex gap-3 items-start" href="#">
+                  <div
+                    class="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-lg overflow-hidden bg-gray-100 relative"
+                  >
+                    <img
+                      alt="News thumb"
+                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      data-alt="Medical team checking health of elderly"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7OIPn5e3cgy7-os8B8BQz41pvu7xauFkt8LVjMZDSR5vN2M4aCJpsbJeIVejQWJmySw7Fp4TuJQrdt3nnF7szGR2okgqcRjUytXoPqKtEACr_aCqsnisbmE7gLFh2BB9-ueH3pwltczacJSFtIPHUI9IruLCFb0tpHXkhlQf2Cqm3Rf-IjdARm2-KDCTkk2I6Xbj2NKFh_0ynHtq6p552JYrbUqAz91A-eGzP233kX5_dLhG4IVE1UpetDwj6fqlg0LMNHYNYF1s"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="text-sm font-semibold text-text-light dark:text-gray-200 group-hover:text-primary transition-colors line-clamp-2 leading-snug"
+                    >
+                      Khám bệnh miễn phí cho người cao tuổi tại Bến Tre
+                    </h4>
+                    <div
+                      class="flex items-center gap-1 mt-1.5 text-xs text-gray-500"
+                    >
+                      <span class="material-icons text-[14px]"
+                        >calendar_today</span
+                      >
+                      <span>12/10/2023</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="group flex gap-3 items-start" href="#">
+                  <div
+                    class="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-lg overflow-hidden bg-gray-100 relative"
+                  >
+                    <img
+                      alt="News thumb"
+                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      data-alt="Classroom with new books"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKv-OeXSCQcA8IWJTQl8MEe8G1rYcTm1N-wsCIRNU1lZxMaKDxdlMKQpnSral7K4SisLyCoQRDt1t0TOSFVz-jdi5OCQ3IqSX2S6z5ITVc0YYwF61wsFKJ9xM9EmQvPhLgwyC6U6LWRKZf9QAAE66eqz0R_d1HSpeu2b-dNwB6UDI8-vjYbLzpbnQ9UteiKYN5d76JBWKczM4cfXUludh7MMx7x0bAgF8rPRfvlmjmTwZcpKnkVOh5hb_TB6Hy4O-lmQoEganc0Qo"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="text-sm font-semibold text-text-light dark:text-gray-200 group-hover:text-primary transition-colors line-clamp-2 leading-snug"
+                    >
+                      Thư viện ước mơ: Mang tri thức đến trường làng
+                    </h4>
+                    <div
+                      class="flex items-center gap-1 mt-1.5 text-xs text-gray-500"
+                    >
+                      <span class="material-icons text-[14px]"
+                        >calendar_today</span
+                      >
+                      <span>05/10/2023</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              class="bg-[#fff5f5] dark:bg-[#2f1a1a] rounded-xl p-6 border border-red-100 dark:border-red-900/30"
+            >
+              <h3
+                class="text-lg font-bold text-text-light dark:text-white mb-4 flex items-center gap-2 font-display"
+              >
+                <span class="material-icons text-primary"
+                  >label</span
+                >
+                Chủ đề quan tâm
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <a
+                  class="px-3 py-1.5 bg-white dark:bg-[#3a2020] text-xs md:text-sm text-gray-700 dark:text-gray-300 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary hover:text-primary hover:shadow-md transition-all duration-200"
+                  href="#"
+                  >#TuThien</a
+                >
+                <a
+                  class="px-3 py-1.5 bg-white dark:bg-[#3a2020] text-xs md:text-sm text-gray-700 dark:text-gray-300 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary hover:text-primary hover:shadow-md transition-all duration-200"
+                  href="#"
+                  >#TreEmVungCao</a
+                >
+                <a
+                  class="px-3 py-1.5 bg-white dark:bg-[#3a2020] text-xs md:text-sm text-gray-700 dark:text-gray-300 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary hover:text-primary hover:shadow-md transition-all duration-200"
+                  href="#"
+                  >#HaGiang</a
+                >
+                <a
+                  class="px-3 py-1.5 bg-white dark:bg-[#3a2020] text-xs md:text-sm text-gray-700 dark:text-gray-300 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary hover:text-primary hover:shadow-md transition-all duration-200"
+                  href="#"
+                  >#AoAmMuaDong</a
+                >
+                <a
+                  class="px-3 py-1.5 bg-white dark:bg-[#3a2020] text-xs md:text-sm text-gray-700 dark:text-gray-300 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary hover:text-primary hover:shadow-md transition-all duration-200"
+                  href="#"
+                  >#CongDong</a
+                >
+              </div>
+            </div>
+            <div
+              class="sticky top-24 bg-gradient-to-br from-primary to-red-600 text-white rounded-xl p-6 md:p-8 shadow-xl text-center overflow-hidden relative group"
+            >
+              <div
+                class="absolute -top-10 -right-10 size-32 bg-white/20 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-700"
+              ></div>
+              <div
+                class="absolute -bottom-10 -left-10 size-32 bg-black/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-700"
+              ></div>
+              <div class="relative z-10 flex flex-col items-center">
+                <div class="bg-white/20 p-3 rounded-full mb-4 backdrop-blur-sm">
+                  <span class="material-icons text-4xl"
+                    >volunteer_activism</span
+                  >
+                </div>
+                <h3 class="text-xl font-bold mb-2 font-display">Bạn muốn đồng hành?</h3>
+                <p class="text-white/90 text-sm mb-6 leading-relaxed">
+                  Mọi sự đóng góp của bạn đều được công khai minh bạch và chuyển
+                  đến đúng người cần giúp đỡ.
+                </p>
+                <button
+                  class="w-full bg-white text-primary font-bold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors shadow-md transform active:scale-95 flex items-center justify-center gap-2"
+                >
+                  <span>Ủng hộ Quỹ</span>
+                  <span class="material-icons text-sm"
+                    >heart_check</span
+                  >
+                </button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <section
+        class="w-full bg-white dark:bg-[#1a0b0b] py-12 md:py-16 border-t border-[#f4f0f0] dark:border-[#3a2020]"
+      >
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-10">
+          <div class="flex items-center justify-between mb-8 md:mb-10">
+            <h2
+              class="text-2xl md:text-3xl font-bold text-text-light dark:text-white flex items-center gap-2 font-display"
+            >
+              <span class="w-1 h-6 md:h-8 bg-primary rounded-full"></span>
+              Tin tức liên quan
+            </h2>
+            <a
+              class="text-primary font-bold text-sm md:text-base flex items-center gap-1 hover:gap-2 transition-all"
+              href="#"
+            >
+              Xem tất cả
+              <span class="material-icons text-sm"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          >
+            <div
+              class="group flex flex-col bg-background-light dark:bg-[#2f1a1a] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  alt="News thumb"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Volunteer teaching kids outdoors"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzJ63jgsTR1WTkP2VzvtFwbsEpi7FrzgNButgHFaR577ky0fDtPhX5Y2d5agkLeCSG2ap-26hsCS0x_E6ibRzLk6b4xBjMs9oJWbUIf7Oy3c96H5rzOFb7m_QgarzNgMwoLbZ2LXjp3vSOXcsmzez7Ggo1jBkwtM4s_xLK8sh_rjA_xiSEiwMqPoNZdev5cv5JT52nxvXuHlcpZP6IvDod6TNIS_grFLkJVn_CV0wcrPK3gygXz750aViRewAdlsngmulZ9F_deBI"
+                />
+                <div
+                  class="absolute top-3 left-3 bg-white/95 dark:bg-black/80 backdrop-blur-sm px-2.5 py-1 rounded-md text-xs font-bold text-primary shadow-sm"
+                >
+                  Giáo dục
+                </div>
+              </div>
+              <div
+                class="p-5 flex flex-col flex-1 border border-transparent group-hover:border-red-100 dark:group-hover:border-red-900/30 rounded-b-xl transition-colors"
+              >
+                <div class="text-xs text-gray-500 mb-3 flex items-center gap-2">
+                  <div class="flex items-center gap-1">
+                    <span class="material-icons text-[14px]"
+                      >calendar_month</span
+                    >
+                    18/10/2023
+                  </div>
+                </div>
+                <h3
+                  class="text-lg font-bold text-text-light dark:text-white mb-3 line-clamp-2 group-hover:text-primary transition-colors"
+                >
+                  Lớp học tình thương giữa lòng thành phố: Nơi chắp cánh ước mơ
+                </h3>
+                <p
+                  class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-5 flex-1 leading-relaxed"
+                >
+                  Hơn 10 năm qua, lớp học nhỏ này đã giúp hàng trăm trẻ em cơ
+                  nhỡ biết đọc, biết viết và nuôi dưỡng hy vọng về một tương lai
+                  tươi sáng.
+                </p>
+                <a
+                  class="text-primary text-sm font-bold mt-auto inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                  href="#"
+                >
+                  Đọc tiếp
+                  <span class="material-icons text-sm"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+            <div
+              class="group flex flex-col bg-background-light dark:bg-[#2f1a1a] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  alt="News thumb"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Food distribution event"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPkQlpTqIbwkgF_89fmCQ2OZluhAaIEN78R1crm2tlD4AAjDD-SD3QFZf4yDfDQROjmohp2d9B9QYAZH3jPgLwwp6zjTo12NNSYQ1KtL6u9n2p3S0Kwze66PBijoCOqD_QlDUflJGl9xW0gWhbTIFpvOGvXUvFpskx-EF2P9-2g20uIjpTDBWNWg8jqRrzXreG3ktmGaIOIFn5HzX9UOUrDUlcnXgJL1JQ4Q0Q3x4H1SvB84rwIECFTX5mzzx9jgjQ3Hk35-A9gFQ"
+                />
+                <div
+                  class="absolute top-3 left-3 bg-white/95 dark:bg-black/80 backdrop-blur-sm px-2.5 py-1 rounded-md text-xs font-bold text-primary shadow-sm"
+                >
+                  Cứu trợ
+                </div>
+              </div>
+              <div
+                class="p-5 flex flex-col flex-1 border border-transparent group-hover:border-red-100 dark:group-hover:border-red-900/30 rounded-b-xl transition-colors"
+              >
+                <div class="text-xs text-gray-500 mb-3 flex items-center gap-2">
+                  <div class="flex items-center gap-1">
+                    <span class="material-icons text-[14px]"
+                      >calendar_month</span
+                    >
+                    16/10/2023
+                  </div>
+                </div>
+                <h3
+                  class="text-lg font-bold text-text-light dark:text-white mb-3 line-clamp-2 group-hover:text-primary transition-colors"
+                >
+                  Hỗ trợ khẩn cấp bà con vùng lũ miền Trung
+                </h3>
+                <p
+                  class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-5 flex-1 leading-relaxed"
+                >
+                  Ngay sau khi nước lũ rút, Quỹ đã nhanh chóng có mặt để hỗ trợ
+                  lương thực, nước sạch và thuốc men cho bà con ổn định cuộc
+                  sống.
+                </p>
+                <a
+                  class="text-primary text-sm font-bold mt-auto inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                  href="#"
+                >
+                  Đọc tiếp
+                  <span class="material-icons text-sm"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+            <div
+              class="group flex flex-col bg-background-light dark:bg-[#2f1a1a] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  alt="News thumb"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Senior people smiling"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsi7o_j33y7vso0tUTVBnlOPjh2gp88-N0xnAuWMDJz_f_B7qXKmCbVVyyyYbShB_ZxnXnnvKCFcA2pa4HlG2SM34NaBpqO5P7gHchMLtFYD7MzMFiqQLkqIaXEmSLOLdk5XNR0hszV25SM4tkIxraX6gEV4EOjcTFkWszVCadAn5RBCmVI4MxkAxOhno_09KafVbCeDf_Tb7lVe5wht64xTMWoLfBlS86KegzAmRX72sPNiBKQ5rB8OQd0MKfHmgbwSK5IDxBnOk"
+                />
+                <div
+                  class="absolute top-3 left-3 bg-white/95 dark:bg-black/80 backdrop-blur-sm px-2.5 py-1 rounded-md text-xs font-bold text-primary shadow-sm"
+                >
+                  Cộng đồng
+                </div>
+              </div>
+              <div
+                class="p-5 flex flex-col flex-1 border border-transparent group-hover:border-red-100 dark:group-hover:border-red-900/30 rounded-b-xl transition-colors"
+              >
+                <div class="text-xs text-gray-500 mb-3 flex items-center gap-2">
+                  <div class="flex items-center gap-1">
+                    <span class="material-icons text-[14px]"
+                      >calendar_month</span
+                    >
+                    10/10/2023
+                  </div>
+                </div>
+                <h3
+                  class="text-lg font-bold text-text-light dark:text-white mb-3 line-clamp-2 group-hover:text-primary transition-colors"
+                >
+                  Ấm áp bữa cơm nghĩa tình tại viện dưỡng lão
+                </h3>
+                <p
+                  class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-5 flex-1 leading-relaxed"
+                >
+                  Một bữa trưa đặc biệt với những món ăn ngon và những câu
+                  chuyện tâm tình đã mang lại niềm vui cho các cụ già neo đơn.
+                </p>
+                <a
+                  class="text-primary text-sm font-bold mt-auto inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                  href="#"
+                >
+                  Đọc tiếp
+                  <span class="material-icons text-sm"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer data-component="footer" class="bg-gray-900 text-gray-300 pt-16 lg:pt-20 pb-8 border-t-4 border-secondary"></footer>
+<a class="fixed bottom-6 right-6 bg-secondary hover:bg-secondary-dark text-white p-3 rounded-full shadow-lg z-50 transition opacity-80 hover:opacity-100 animate-bounce" href="#">
+  <span class="material-icons">arrow_upward</span>
+</a>
+    
+      <script src="/js/components.js"></script>
+    <script src="/js/navigation.js"></script></body>
+</html>
+
+
