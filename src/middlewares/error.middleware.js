@@ -1,3 +1,5 @@
+const config = require('../config/app.config');
+
 module.exports = (err, req, res, next) => {
   console.error('Error:', err.message);
   console.error(err.stack);
@@ -9,6 +11,8 @@ module.exports = (err, req, res, next) => {
     title: 'Lỗi',
     statusCode,
     message,
-    error: process.env.NODE_ENV === 'development' ? err : {}
+    error: process.env.NODE_ENV === 'development' ? err : {},
+    config: config,
+    page: 'error'
   });
 };
