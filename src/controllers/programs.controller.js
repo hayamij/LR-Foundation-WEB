@@ -1,8 +1,3 @@
-/**
- * Controllers - Programs (Chương trình - Dự án)
- * Xử lý logic cho các trang chương trình
- */
-
 const config = require('../config/app.config');
 
 exports.getProgramsPage = (req, res) => {

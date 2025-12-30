@@ -1,8 +1,3 @@
-/**
- * Application Configuration
- * Centralized configuration management
- */
-
 require('dotenv').config();
 
 module.exports = {

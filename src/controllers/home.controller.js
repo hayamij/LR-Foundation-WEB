@@ -1,8 +1,3 @@
-/**
- * Controllers - Home/Index
- * Xử lý logic cho trang chủ
- */
-
 const config = require('../config/app.config');
 
 exports.getHomePage = (req, res) => {

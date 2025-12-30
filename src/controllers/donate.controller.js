@@ -1,8 +1,3 @@
-/**
- * Controllers - Donate (Đóng góp)
- * Xử lý logic cho trang quyên góp
- */
-
 const config = require('../config/app.config');
 
 exports.getDonatePage = (req, res) => {

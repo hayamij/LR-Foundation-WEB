@@ -5,7 +5,7 @@
 
 // Mobile menu toggle (for future implementation)
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('🌹 LR Foundation - Website loaded');
+  console.log('LR Foundation - Website loaded');
   
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -1,8 +1,3 @@
-/**
- * Controllers - News & Documents (Tin tức & Tài liệu)
- * Xử lý logic cho tin tức, báo cáo
- */
-
 const config = require('../config/app.config');
 
 exports.getNewsPage = (req, res) => {
