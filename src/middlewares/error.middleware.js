@@ -1,5 +1,3 @@
-const config = require('../config/app.config');
-
 module.exports = (err, req, res, next) => {
     console.error('Error:', err.message);
     console.error(err.stack);
@@ -7,12 +5,26 @@ module.exports = (err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || 'Đã xảy ra lỗi hệ thống';
 
-    res.status(statusCode).render('pages/error', {
-        title: 'Lỗi',
-        statusCode,
-        message,
-        error: process.env.NODE_ENV === 'development' ? err : {},
-        config: config,
-        page: 'error'
-    });
+    res.status(statusCode).send(`
+        <!DOCTYPE html>
+        <html lang="vi">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Lỗi - ${statusCode}</title>
+            <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+                h1 { color: #ec1313; }
+                a { color: #ec1313; text-decoration: none; }
+                pre { text-align: left; background: #f5f5f5; padding: 20px; border-radius: 5px; overflow: auto; }
+            </style>
+        </head>
+        <body>
+            <h1>Lỗi ${statusCode}</h1>
+            <p>${message}</p>
+            ${process.env.NODE_ENV === 'development' ? `<pre>${err.stack}</pre>` : ''}
+            <p><a href="/">Về trang chủ</a></p>
+        </body>
+        </html>
+    `);
 };
