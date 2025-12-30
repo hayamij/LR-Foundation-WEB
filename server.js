@@ -1,8 +1,3 @@
-/**
- * Server Entry Point
- * LR Foundation WEB UI - Little Roses Foundation
- */
-
 const app = require('./src/app');
 const config = require('./src/config/app.config');
 
