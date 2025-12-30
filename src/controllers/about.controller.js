@@ -1,8 +1,3 @@
-/**
- * Controllers - About (Về chúng tôi)
- * Xử lý logic cho các trang giới thiệu
- */
-
 const config = require('../config/app.config');
 
 exports.getAboutPage = (req, res) => {
