@@ -1,31 +1,159 @@
-<!-- Header Component -->
-<header class="bg-white shadow-md sticky top-0 z-50">
-  <div class="container mx-auto px-4">
-    <!-- Top Bar -->
-    <div class="flex items-center justify-between py-3 border-b">
-      <!-- Logo -->
-      <div class="flex items-center space-x-3">
-        <i class="fas fa-heart text-pink-500 text-3xl"></i>
-        <div>
-          <h1 class="text-xl font-bold text-gray-800"><%= config.appName %></h1>
-          <p class="text-xs text-gray-600">Little Roses Foundation</p>
-        </div>
+<header class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark shadow-md">
+  <!-- Top Bar -->
+  <div class="bg-primary text-white py-2 text-sm hidden lg:block">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex space-x-6">
+        <span class="flex items-center hover:text-green-200 transition cursor-pointer">
+          <span class="material-icons text-base mr-2">email</span>
+          <%= config.social.email %>
+        </span>
+        <span class="flex items-center hover:text-green-200 transition cursor-pointer">
+          <span class="material-icons text-base mr-2">phone</span> 
+          <%= config.social.phone || '(+84) 123 456 789' %>
+        </span>
       </div>
-      
-      <!-- CTA Button -->
-      <a href="/donate" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full font-semibold transition-colors">
-        <i class="fas fa-hand-holding-heart mr-2"></i>Đóng góp ngay
+      <div class="flex space-x-4">
+        <a class="hover:text-green-200 transition opacity-90 hover:opacity-100" href="<%= config.social.facebook %>" target="_blank">
+          <span class="material-icons text-base">facebook</span>
+        </a>
+        <a class="hover:text-green-200 transition opacity-90 hover:opacity-100" href="<%= config.social.youtube %>" target="_blank">
+          <span class="material-icons text-base">smart_display</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <div class="container mx-auto px-4 py-3 lg:py-4">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <a class="flex items-center space-x-3 group" href="/">
+        <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-secondary flex items-center justify-center text-white font-bold text-lg lg:text-2xl shadow-lg group-hover:bg-primary transition-colors duration-300 shrink-0">
+          LRF
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-base lg:text-xl text-primary dark:text-white leading-tight uppercase">
+            <%= config.appName %>
+          </span>
+          <span class="text-[10px] lg:text-xs text-gray-500 dark:text-gray-400 font-body tracking-widest uppercase">
+            Little Rose Foundation
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex space-x-1 xl:space-x-2 items-center">
+        <a class="nav-link px-2 xl:px-3 py-2 rounded-md font-semibold <%= page === 'home' ? 'text-primary bg-green-50/50 hover:bg-green-50 dark:text-green-400' : 'text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white' %> transition text-sm xl:text-base" href="/">
+          Trang chủ
+        </a>
+
+        <!-- Về Chúng Tôi Dropdown -->
+        <div class="relative group">
+          <button class="nav-link px-2 xl:px-3 py-2 rounded-md font-medium text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white flex items-center transition text-sm xl:text-base">
+            Về Chúng Tôi
+            <span class="material-icons text-sm ml-1">expand_more</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-56 bg-white dark:bg-surface-dark rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50 border border-gray-100 dark:border-gray-700 overflow-hidden">
+            <a class="block px-4 py-3 hover:bg-green-50 dark:hover:bg-gray-700 text-sm font-medium border-b border-gray-50 dark:border-gray-700 last:border-0" href="/about">
+              Giới thiệu chung
+            </a>
+            <a class="block px-4 py-3 hover:bg-green-50 dark:hover:bg-gray-700 text-sm font-medium border-b border-gray-50 dark:border-gray-700 last:border-0" href="/about#vision">
+              Tầm nhìn & Sứ mệnh
+            </a>
+            <a class="block px-4 py-3 hover:bg-green-50 dark:hover:bg-gray-700 text-sm font-medium" href="/about#team">
+              Đội ngũ nhân sự
+            </a>
+          </div>
+        </div>
+
+        <!-- Chương Trình Dropdown -->
+        <div class="relative group">
+          <button class="nav-link px-2 xl:px-3 py-2 rounded-md font-medium text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white flex items-center transition text-sm xl:text-base">
+            Chương Trình
+            <span class="material-icons text-sm ml-1">expand_more</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-64 bg-white dark:bg-surface-dark rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50 border border-gray-100 dark:border-gray-700 overflow-hidden">
+            <a class="block px-4 py-3 hover:bg-green-50 dark:hover:bg-gray-700 text-sm font-medium border-b border-gray-50 dark:border-gray-700 last:border-0" href="/programs/education">
+              Giáo Dục & Học Bổng
+            </a>
+            <a class="block px-4 py-3 hover:bg-green-50 dark:hover:bg-gray-700 text-sm font-medium border-b border-gray-50 dark:border-gray-700 last:border-0" href="/programs/healthcare">
+              Y Tế & Sức Khỏe
+            </a>
+            <a class="block px-4 py-3 hover:bg-green-50 dark:hover:bg-gray-700 text-sm font-medium" href="/programs/emergency">
+              Cứu Trợ Khẩn Cấp
+            </a>
+          </div>
+        </div>
+
+        <a class="nav-link px-2 xl:px-3 py-2 rounded-md font-medium <%= page === 'news' ? 'text-primary bg-green-50/50 hover:bg-green-50 dark:text-green-400' : 'text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white' %> transition text-sm xl:text-base" href="/news">
+          Tin Tức
+        </a>
+
+        <a class="nav-link px-2 xl:px-3 py-2 rounded-md font-medium <%= page === 'reports' ? 'text-primary bg-green-50/50 hover:bg-green-50 dark:text-green-400' : 'text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white' %> transition text-sm xl:text-base whitespace-nowrap" href="/news/reports">
+          Công Khai TC
+        </a>
+
+        <a class="nav-link px-2 xl:px-3 py-2 rounded-md font-medium <%= page === 'contact' ? 'text-primary bg-green-50/50 hover:bg-green-50 dark:text-green-400' : 'text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white' %> transition text-sm xl:text-base" href="/contact">
+          Liên Hệ
+        </a>
+      </nav>
+
+      <!-- Right Section -->
+      <div class="flex items-center space-x-4">
+        <!-- Donate Button (Desktop) -->
+        <div class="hidden md:block">
+          <a class="btn bg-secondary hover:bg-secondary-dark text-white px-5 lg:px-7 py-2.5 rounded-full font-bold shadow-md shadow-red-200 dark:shadow-none transform hover:-translate-y-0.5 transition-all duration-200 flex items-center text-sm lg:text-base" href="/donate">
+            <span class="material-icons text-sm mr-2 animate-pulse">favorite</span>
+            Quyên Góp
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden p-2 rounded-md text-gray-600 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition" id="mobile-menu-button">
+          <span class="material-icons text-3xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="hidden lg:hidden bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-700" id="mobile-menu">
+    <div class="px-4 py-2 space-y-1">
+      <a class="block px-3 py-2 rounded-md text-base font-medium <%= page === 'home' ? 'text-primary bg-green-50 dark:bg-gray-800' : 'text-gray-700 hover:bg-gray-50' %>" href="/">
+        Trang chủ
+      </a>
+      <a class="block px-3 py-2 rounded-md text-base font-medium <%= page === 'about' ? 'text-primary bg-green-50 dark:bg-gray-800' : 'text-gray-700 hover:bg-gray-50' %>" href="/about">
+        Về Chúng Tôi
+      </a>
+      <a class="block px-3 py-2 rounded-md text-base font-medium <%= page === 'programs' ? 'text-primary bg-green-50 dark:bg-gray-800' : 'text-gray-700 hover:bg-gray-50' %>" href="/programs">
+        Chương Trình - Dự Án
+      </a>
+      <a class="block px-3 py-2 rounded-md text-base font-medium <%= page === 'news' ? 'text-primary bg-green-50 dark:bg-gray-800' : 'text-gray-700 hover:bg-gray-50' %>" href="/news">
+        Tin Tức
+      </a>
+      <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50" href="/news/reports">
+        Công Khai Tài Chính
+      </a>
+      <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50" href="/contact">
+        Liên Hệ
+      </a>
+      <a class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold text-white bg-secondary" href="/donate">
+        Quyên Góp Ngay
       </a>
     </div>
-    
-    <!-- Navigation -->
-    <nav class="py-4">
-      <ul class="flex space-x-8">
-        <li><a href="/" class="<%= page === 'home' ? 'text-pink-500 font-semibold' : 'text-gray-700' %> hover:text-pink-500 transition-colors">Trang chủ</a></li>
-        <li><a href="/about" class="<%= page === 'about' ? 'text-pink-500 font-semibold' : 'text-gray-700' %> hover:text-pink-500 transition-colors">Về chúng tôi</a></li>
-        <li><a href="/programs" class="<%= page === 'programs' ? 'text-pink-500 font-semibold' : 'text-gray-700' %> hover:text-pink-500 transition-colors">Chương trình</a></li>
-        <li><a href="/news" class="<%= page === 'news' ? 'text-pink-500 font-semibold' : 'text-gray-700' %> hover:text-pink-500 transition-colors">Tin tức</a></li>
-      </ul>
-    </nav>
   </div>
 </header>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>

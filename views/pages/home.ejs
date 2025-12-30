@@ -1,66 +1,409 @@
-<%- include('../layouts/main', { body: `
-<div class="bg-gradient-to-b from-pink-50 to-white">
-  <!-- Hero Section -->
-  <section class="container mx-auto px-4 py-16">
-    <div class="text-center max-w-4xl mx-auto">
-      <h1 class="text-5xl font-bold text-gray-800 mb-6">
-        Kết nối những tấm lòng <span class="text-pink-500">nhân ái</span>
-      </h1>
-      <p class="text-xl text-gray-600 mb-8">
-        Cùng nhau xây dựng tương lai tốt đẹp hơn cho trẻ em và cộng đồng
-      </p>
-      <a href="/donate" class="inline-block bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
-        <i class="fas fa-heart mr-2"></i>Đóng góp ngay
-      </a>
-    </div>
-  </section>
+<%- include('../layouts/main', { 
+  title: 'Trang chủ',
+  body: `
+    <!-- Hero Section with Image -->
+    <section class="relative bg-gray-100 dark:bg-gray-800">
+      <div class="relative w-full h-[500px] lg:h-[600px] overflow-hidden group">
+        <img
+          alt="Trẻ em đang học tập vui vẻ"
+          class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-1000"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQxA8FNzaSwZkYh10Iy3VnOG3rIkb3ekdWfT5Akyvcg28V_TidiTTrQLtn29NaUbSDSeVx229pEvIScGSdajSa-QWvtX9Ty8t0IxTI10v8o6abB_Ecjrs0p1f0t1ZjvTeSOh6LsxiDlyskHOWuZ9PVYpTJnGw0EkkhYs9aSFCEU5DdMBS50NBLgoNnOp1N1ksVgtGWcP8-GCtdEiKvVGtXWuOa2btefWzE7yuXCmkb1j5_T5v0g6JUyH70-8X_KoizybhmUZ8ov1I"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/60 to-transparent lg:via-primary/70 flex items-center">
+          <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-xl text-white pt-10 md:pt-0">
+              <div class="inline-flex items-center space-x-2 bg-secondary/90 backdrop-blur px-3 py-1 rounded mb-4 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+                <span class="text-xs font-bold uppercase tracking-wide">Chương trình nổi bật</span>
+              </div>
+              <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight font-display drop-shadow-md">
+                Mang nụ cười đến cho <span class="text-green-300">trẻ em vùng cao</span>
+              </h1>
+              <p class="text-base md:text-lg mb-8 text-gray-100 font-light leading-relaxed max-w-lg drop-shadow-sm">
+                Chúng tôi cam kết hỗ trợ giáo dục và y tế để mọi trẻ em đều có cơ hội phát triển toàn diện, bất kể hoàn cảnh xuất thân.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a class="bg-white text-primary hover:bg-gray-100 hover:text-primary-dark px-8 py-3.5 rounded-full font-bold text-center transition shadow-lg ring-2 ring-white/50" href="/about">
+                  Tìm hiểu thêm
+                </a>
+                <a class="bg-secondary hover:bg-secondary-dark text-white px-8 py-3.5 rounded-full font-bold text-center transition shadow-lg flex justify-center items-center shadow-red-900/20" href="/donate">
+                  <span class="material-icons mr-2 text-xl">volunteer_activism</span>
+                  Ủng hộ dự án
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- Stats Section -->
-  <section class="container mx-auto px-4 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <i class="fas fa-users text-pink-500 text-5xl mb-4"></i>
-        <h3 class="text-4xl font-bold text-gray-800 mb-2">1,000+</h3>
-        <p class="text-gray-600">Người thụ hưởng</p>
-      </div>
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <i class="fas fa-project-diagram text-pink-500 text-5xl mb-4"></i>
-        <h3 class="text-4xl font-bold text-gray-800 mb-2">50+</h3>
-        <p class="text-gray-600">Dự án đã thực hiện</p>
-      </div>
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <i class="fas fa-hand-holding-heart text-pink-500 text-5xl mb-4"></i>
-        <h3 class="text-4xl font-bold text-gray-800 mb-2">500+</h3>
-        <p class="text-gray-600">Nhà tài trợ</p>
-      </div>
-    </div>
-  </section>
+      <!-- Feature Cards -->
+      <div class="container mx-auto px-4 relative z-10 -mt-10 md:-mt-20 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-surface-light dark:bg-surface-dark p-6 lg:p-8 rounded-xl shadow-xl border-t-4 border-primary transform hover:-translate-y-2 transition duration-300 group">
+            <div class="flex items-center mb-4">
+              <div class="p-3 rounded-full bg-green-50 dark:bg-green-900/50 text-primary dark:text-green-300 mr-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                <span class="material-icons text-3xl">school</span>
+              </div>
+              <h3 class="font-bold text-xl group-hover:text-primary transition-colors">Giáo Dục</h3>
+            </div>
+            <p class="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              Hỗ trợ học bổng, sách vở và xây dựng trường lớp khang trang cho trẻ em nghèo hiếu học tại các vùng sâu vùng xa.
+            </p>
+          </div>
 
-  <!-- Programs Preview -->
-  <section class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Chương trình của chúng tôi</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <a href="/programs/education" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-        <i class="fas fa-graduation-cap text-pink-500 text-4xl mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Giáo dục</h3>
-        <p class="text-gray-600 text-sm">Hỗ trợ học bổng và phát triển giáo dục</p>
-      </a>
-      <a href="/programs/healthcare" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-        <i class="fas fa-heartbeat text-pink-500 text-4xl mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Y tế</h3>
-        <p class="text-gray-600 text-sm">Chăm sóc sức khỏe cho cộng đồng</p>
-      </a>
-      <a href="/programs/social" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-        <i class="fas fa-hands-helping text-pink-500 text-4xl mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Bác ái</h3>
-        <p class="text-gray-600 text-sm">Hỗ trợ người khó khăn trong xã hội</p>
-      </a>
-      <a href="/programs/fundraising" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-        <i class="fas fa-donate text-pink-500 text-4xl mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Gây quỹ</h3>
-        <p class="text-gray-600 text-sm">Các chiến dịch kêu gọi ủng hộ</p>
-      </a>
-    </div>
-  </section>
-</div>
+          <div class="bg-surface-light dark:bg-surface-dark p-6 lg:p-8 rounded-xl shadow-xl border-t-4 border-secondary transform hover:-translate-y-2 transition duration-300 group">
+            <div class="flex items-center mb-4">
+              <div class="p-3 rounded-full bg-red-50 dark:bg-red-900/50 text-secondary dark:text-red-300 mr-4 group-hover:bg-secondary group-hover:text-white transition-colors">
+                <span class="material-icons text-3xl">medical_services</span>
+              </div>
+              <h3 class="font-bold text-xl group-hover:text-secondary transition-colors">Y Tế & Sức Khỏe</h3>
+            </div>
+            <p class="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              Tổ chức khám chữa bệnh miễn phí, cấp phát thuốc và hỗ trợ chi phí phẫu thuật tim cho bệnh nhi có hoàn cảnh khó khăn.
+            </p>
+          </div>
+
+          <div class="bg-surface-light dark:bg-surface-dark p-6 lg:p-8 rounded-xl shadow-xl border-t-4 border-primary transform hover:-translate-y-2 transition duration-300 group">
+            <div class="flex items-center mb-4">
+              <div class="p-3 rounded-full bg-green-50 dark:bg-green-900/50 text-primary dark:text-green-300 mr-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                <span class="material-icons text-3xl">people</span>
+              </div>
+              <h3 class="font-bold text-xl group-hover:text-primary transition-colors">Bác Ái Xã Hội</h3>
+            </div>
+            <p class="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              Cứu trợ thiên tai khẩn cấp, tặng quà tết cho người nghèo và chăm sóc người già neo đơn không nơi nương tựa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-12 lg:py-20 bg-background-light dark:bg-background-dark overflow-hidden">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div class="lg:w-1/2 relative w-full">
+            <div class="hidden md:block absolute -top-8 -left-8 w-32 h-32 bg-secondary/10 rounded-full blur-xl -z-0"></div>
+            <div class="hidden md:block absolute -bottom-8 -right-8 w-40 h-40 bg-primary/10 rounded-full blur-xl -z-0"></div>
+            <div class="relative z-10">
+              <img
+                alt="Về Quỹ Bông Hồng Nhỏ"
+                class="rounded-2xl shadow-2xl w-full object-cover h-[300px] md:h-[450px]"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGrd_kSrdakYaUpP_lcnQFab6YpC7UnfLb0JR--FtwqKwDjhsfRs-GOIYwSHNjg71Qh8S1ed1ptZw4QqMN5qNn857DQKNkL5WofLIb5z07TP2eZXAt7NYqcV4Zond6SGQzr1Az8bIQ8PM3UFlFuOhd1-kMeB4n5WY0uizwICH_zueAUGj_EnS2dvqE9wEtTx5vfkVvjz5PindcukzUTkC69robvfRPx-r0vC5LUYFak5CdCQla00HwRUFUYxJ_SHXINcw40XYb_Zg"
+              />
+              <div class="absolute -bottom-6 -right-2 md:bottom-10 md:-right-10 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl border-l-4 border-secondary max-w-[200px] md:max-w-xs hidden sm:block">
+                <p class="text-sm text-gray-500 mb-1">Tổng giá trị đóng góp</p>
+                <p class="text-2xl font-bold text-primary">25+ Tỷ VNĐ</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div class="flex items-center space-x-2 mb-4">
+              <span class="w-8 h-[2px] bg-secondary"></span>
+              <h4 class="text-secondary font-bold text-sm uppercase tracking-widest">Giới Thiệu</h4>
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary dark:text-white font-display leading-tight">
+              Kết Nối Yêu Thương, <br class="hidden lg:block" />Lan Tỏa Nhân Ái
+            </h2>
+            <div class="prose prose-lg text-gray-600 dark:text-gray-300 mb-8">
+              <p class="mb-4">
+                Quỹ Bông Hồng Nhỏ (Little Rose Foundation) là tổ chức phi lợi nhuận hoạt động vì mục đích nhân đạo. Chúng tôi tin rằng mọi sự đóng góp nhỏ đều có thể tạo nên những thay đổi lớn lao trong cuộc sống của những mảnh đời bất hạnh.
+              </p>
+              <p>
+                Với sứ mệnh <strong>"Trao cần câu hơn trao con cá"</strong>, LRF tập trung vào các dự án phát triển bền vững về giáo dục và y tế, giúp cộng đồng yếu thế tự vươn lên và làm chủ cuộc sống của chính mình.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-8 mb-10">
+              <div class="border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                <span class="block text-4xl lg:text-5xl font-extrabold text-secondary mb-1">10+</span>
+                <span class="text-sm lg:text-base text-gray-500 font-medium">Năm hoạt động không ngừng nghỉ</span>
+              </div>
+              <div class="border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                <span class="block text-4xl lg:text-5xl font-extrabold text-primary mb-1">5k+</span>
+                <span class="text-sm lg:text-base text-gray-500 font-medium">Trẻ em được hỗ trợ trực tiếp</span>
+              </div>
+            </div>
+            <a class="inline-flex items-center text-primary dark:text-green-400 font-bold hover:text-secondary dark:hover:text-red-400 transition group text-lg" href="/about">
+              Xem chi tiết về chúng tôi
+              <span class="material-icons ml-2 transform group-hover:translate-x-1 transition">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="py-16 lg:py-24 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-bold text-primary dark:text-white mb-4 font-display">
+            Các Dự Án Nổi Bật
+          </h2>
+          <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full mb-6"></div>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Những hoạt động ý nghĩa đang cần sự chung tay của cộng đồng để hiện thực hóa ước mơ cho những hoàn cảnh khó khăn.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <!-- Project 1 -->
+          <article class="flex flex-col bg-background-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:shadow-2xl transition duration-300 group">
+            <div class="relative h-60 overflow-hidden">
+              <img
+                alt="Dự án giáo dục"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCylAP_mtQI5CaBW15EPgqUTnZ7Uhgn2CMzsfRuFYPBTjpKcVXWcLcpkCjhUY9-gcrMVsTbVocZBUuAwZx-qqoMNaMnWFKAPv_LTwk_7g3Ty3UyH6y6QigaXhp9PbfX9pu9oKDHAac9yC2qpAk_B6dLFMg3DwSK_kIqrvRmjhTEuk7UcnVft3fPT6ArgK5Ft2fNWZszQWRFOduqSwHA5rkhdTZjUHXIpHKtkDaohuZ8XikSDJMXXuWxUfteLtNrtQafRVQaot_dbQ"
+              />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+              <span class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wide">Giáo Dục</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold mb-3 hover:text-secondary transition cursor-pointer font-display leading-snug">
+                Xây Trường Cho Em - Điểm Trường Bản Mèo
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                Dự án xây mới 3 phòng học kiên cố thay thế lớp học tranh tre nứa lá cho 60 em học sinh tiểu học tại vùng cao, giúp các em yên tâm đến trường trong mùa mưa bão.
+              </p>
+              <div class="mt-auto">
+                <div class="flex justify-between text-xs font-bold mb-2">
+                  <span class="text-secondary">50%</span>
+                  <span class="text-gray-400">300.000.000đ</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-6 overflow-hidden">
+                  <div class="bg-secondary h-full rounded-full transition-all duration-1000 ease-out" style="width: 50%"></div>
+                </div>
+                <div class="flex gap-3">
+                  <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2.5 rounded-lg font-bold text-sm transition shadow-md hover:shadow-lg">
+                    Ủng Hộ Ngay
+                  </button>
+                  <button class="px-4 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-semibold text-sm transition">
+                    Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="flex flex-col bg-background-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:shadow-2xl transition duration-300 group">
+            <div class="relative h-60 overflow-hidden">
+              <img
+                alt="Dự án y tế"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy6clFanfPES9xYeGFUCdZmQSwA8QYAV_6q3z9ZmXCDFnXmQ7hgpOqJFlnd-HdblVmUwGTzRDZp5-BpPzAFP24q4lDMmGoMRPBZGoX5StVU-zNPAnXVuaOKDMfckfKcSC0Dbk0YTllIPuZdP5R3ybwoOzlW8Suy375KZW45o0TtCdT7ptGHEdNNDX2rM8zdBtIdX0i2p8ttSQFoeMinQP_LqEBVE4_y2cNzYbMjw4EPQWm8FWLjLRbhUw5wJJCChtkhdfxZypMT5M"
+              />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+              <span class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wide">Y Tế</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold mb-3 hover:text-secondary transition cursor-pointer font-display leading-snug">
+                Trái Tim Cho Em - Phẫu Thuật Tim Miễn Phí
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                Chương trình khám sàng lọc và hỗ trợ chi phí phẫu thuật tim cho trẻ em có hoàn cảnh khó khăn trên toàn quốc, mang lại nhịp đập khỏe mạnh cho những trái tim lỗi nhịp.
+              </p>
+              <div class="mt-auto">
+                <div class="flex justify-between text-xs font-bold mb-2">
+                  <span class="text-secondary">90%</span>
+                  <span class="text-gray-400">500.000.000đ</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-6 overflow-hidden">
+                  <div class="bg-secondary h-full rounded-full transition-all duration-1000 ease-out" style="width: 90%"></div>
+                </div>
+                <div class="flex gap-3">
+                  <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2.5 rounded-lg font-bold text-sm transition shadow-md hover:shadow-lg">
+                    Ủng Hộ Ngay
+                  </button>
+                  <button class="px-4 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-semibold text-sm transition">
+                    Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="flex flex-col bg-background-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 hover:shadow-2xl transition duration-300 group">
+            <div class="relative h-60 overflow-hidden">
+              <img
+                alt="Dự án cộng đồng"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHgDynE-GtstMLuS6gIUwW9b-H-yJlN9IFwd3bqyykX17fzQzCYoVYd5sYKpcrDGVsADgst7D-hKjmRMQfKsrt-KPS7bcH0IV8LPbZZl35YzFMFoG7kfL_Ok4Wd2A58UNhYE5cF5omggW1_b5p4ZxwAWWoCJADN3d5QDhy0_Vs19TaaqzE8zLGWvZUhUBVsk9Zy9__hlkeNj20J-jOMjYVs6JXRjhu2VecXmhQh9cduauPIXXtqfbC-Q4ww_IqHTiOu6FC6puNlhs"
+              />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+              <span class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wide">Khẩn Cấp</span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold mb-3 hover:text-secondary transition cursor-pointer font-display leading-snug">
+                Cứu Trợ Khẩn Cấp - Mùa Lũ Miền Trung
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                Vận chuyển nhu yếu phẩm, thuốc men, áo phao và thực phẩm thiết yếu đến bà con vùng lũ đang bị cô lập, giúp họ vượt qua giai đoạn khó khăn nhất.
+              </p>
+              <div class="mt-auto">
+                <div class="flex justify-between text-xs font-bold mb-2">
+                  <span class="text-secondary">40%</span>
+                  <span class="text-gray-400">200.000.000đ</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-6 overflow-hidden">
+                  <div class="bg-secondary h-full rounded-full transition-all duration-1000 ease-out" style="width: 40%"></div>
+                </div>
+                <div class="flex gap-3">
+                  <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2.5 rounded-lg font-bold text-sm transition shadow-md hover:shadow-lg">
+                    Ủng Hộ Ngay
+                  </button>
+                  <button class="px-4 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-semibold text-sm transition">
+                    Chi Tiết
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center mt-12">
+          <a class="inline-block border-2 border-primary text-primary dark:text-white dark:border-white px-10 py-3 rounded-full font-bold hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition duration-300 uppercase tracking-wider text-sm" href="/programs">
+            Xem Tất Cả Dự Án
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="py-16 lg:py-20 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col sm:flex-row justify-between items-end mb-10 gap-4">
+          <div>
+            <h2 class="text-3xl font-bold text-primary dark:text-white mb-2 font-display">
+              Tin Tức & Câu Chuyện
+            </h2>
+            <div class="w-16 h-1 bg-secondary rounded-full"></div>
+          </div>
+          <a class="text-sm font-bold text-gray-500 dark:text-gray-400 hover:text-primary transition flex items-center" href="/news">
+            Xem kho tin tức
+            <span class="material-icons text-base ml-1">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <!-- Featured Story -->
+          <div class="relative rounded-2xl overflow-hidden group shadow-lg h-[400px] lg:h-auto">
+            <img
+              alt="Câu chuyện nổi bật"
+              class="w-full h-full object-cover transition duration-1000 group-hover:scale-105"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0ALfeM68n4DSn94bY7u0mdRQVr3BeN1b46YIklp03QVVXzHKIJyRj2cefrQ-IesTtmMsQCR270UKTqEQGc3ERCvVU0yqk6GlVihvA46awd0x3AZ9KThUfnKzmZlia1c6L0aJEAIfTotNvRYJc-kMVIvJlKXVjHtwxj-DLMCxwSEmWEI9d13pLC6bJc3jBMRy3mO5eEpfWVU1A3sFvjcv5GQtxt40D4LfPujn4LT-_4rfHRCVurvDTKzHKrhndg7KSK-7_9-cycV0"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-8">
+              <span class="text-secondary-dark bg-white/95 backdrop-blur-sm px-3 py-1 rounded text-xs font-extrabold uppercase tracking-wide w-fit mb-3 shadow-sm">Câu chuyện tác động</span>
+              <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 font-display leading-tight group-hover:text-green-200 transition">
+                Hành trình tìm lại nụ cười của bé An
+              </h3>
+              <p class="text-gray-200 text-sm md:text-base line-clamp-2 mb-5">
+                Câu chuyện cảm động về nghị lực phi thường của cô bé 8 tuổi chiến đấu với căn bệnh hiểm nghèo và sự đồng hành của LRF trong suốt 2 năm qua.
+              </p>
+              <a class="text-white font-bold text-sm hover:text-secondary flex items-center" href="/news">
+                Đọc tiếp
+                <span class="material-icons text-base ml-1">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- News List -->
+          <div class="flex flex-col space-y-5">
+            <article class="flex flex-col sm:flex-row gap-5 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition group">
+              <div class="sm:w-32 lg:w-40 h-48 sm:h-auto overflow-hidden rounded-lg shrink-0 relative">
+                <img
+                  alt="Tin tức"
+                  class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK0oDGQ1MZWizncWtyRKiBROgsb7UTXZB3l3ndb1wclTHjIswW_MspzkRPnf2mtQLMIXQpSri0xTd2ZIU7MOQQo1HOhp4ZJUnM1NbTQNmDfjlWwPRWk5VHSzDAwfik6EIOSMwhGqe7X9kQUKZbvChZU8NdIh2jit3ARwInzC0_9NhbElPctrV4jYbUHzKy1_ZCabc_deXt8Jk9SbMeVxIun31KTvvvbBQRSsvKFaofxFszGyZRz_MqRQmRnBmZ0qqL-S9TS69vAM4"
+                />
+              </div>
+              <div class="flex flex-col justify-center">
+                <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">
+                  <span class="material-icons text-[16px] mr-1 text-secondary">calendar_today</span>
+                  12/10/2023
+                </div>
+                <h4 class="font-bold text-lg mb-2 text-gray-800 dark:text-gray-200 hover:text-primary transition font-display leading-snug">
+                  <a href="/news">Báo cáo tài chính Quý III - 2023: Minh bạch và Hiệu quả</a>
+                </h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 leading-relaxed">
+                  Công khai chi tiết các khoản thu chi, phân bổ nguồn vốn và kết quả hoạt động của quỹ trong 3 tháng qua để nhà hảo tâm tiện theo dõi.
+                </p>
+              </div>
+            </article>
+
+            <article class="flex flex-col sm:flex-row gap-5 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition group">
+              <div class="sm:w-32 lg:w-40 h-48 sm:h-auto overflow-hidden rounded-lg shrink-0 relative">
+                <img
+                  alt="Tin tức"
+                  class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQVwQ3Z7XWGfGBiEeFLrYE2edlWy6tQSMcttnlJRBBmvObPF2vubgCqU-ZplBSVAzQB7lRr0MQ3avsfH6fye7rIl8jCmfp8Xqv80gDZjg2ZTPGvUGhBG-peRvKEepKHomzT5sj3fjdQqZmORsMZ4FoEsR6h8xAX086aYR8nARv8yey9aOS-grivQXz_gRCKGGrepo5BiB2m6PauCpgTjgZ_iOYzWX8lexztGGVBNRRPX-8-KYg4YQ5tjy5n_AyqcuQMKeiFvDOC2Y"
+                />
+              </div>
+              <div class="flex flex-col justify-center">
+                <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">
+                  <span class="material-icons text-[16px] mr-1 text-secondary">calendar_today</span>
+                  05/10/2023
+                </div>
+                <h4 class="font-bold text-lg mb-2 text-gray-800 dark:text-gray-200 hover:text-primary transition font-display leading-snug">
+                  <a href="/news">Gala "Kết nối yêu thương" gây quỹ thành công rực rỡ</a>
+                </h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 leading-relaxed">
+                  Sự kiện đã quyên góp được hơn 2 tỷ đồng cho quỹ học bổng "Tiếp sức đến trường", mở ra cơ hội học tập cho 500 em nhỏ.
+                </p>
+              </div>
+            </article>
+
+            <article class="flex flex-col sm:flex-row gap-5 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition group">
+              <div class="sm:w-32 lg:w-40 h-48 sm:h-auto overflow-hidden rounded-lg shrink-0 relative">
+                <img
+                  alt="Tin tức"
+                  class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAFnRJy8mCv8r0k5-vhwxV4mfV6XLggrzAvJLodE-kmnCSV3a95NuNYfoJXb9ttJWgORsNgAf6cQl2cUftTIC9SuQh1Tgp2bmAMG1D994kPw2U3nyGGM3IwOdtJwFVHjQOSzia3yl-4_7AJodsAlFFjbDLdUzKsUBZftUtnNWVi0WryQdwTh9ipFOc40bcneI9yBiwiAEmydm_QRsMvP71-4Fp-89DWBvtt6xdLtVmTpUBV_t1Keu4E8PMbYo3uvdCCGbOpdwV1OA"
+                />
+              </div>
+              <div class="flex flex-col justify-center">
+                <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">
+                  <span class="material-icons text-[16px] mr-1 text-secondary">calendar_today</span>
+                  01/10/2023
+                </div>
+                <h4 class="font-bold text-lg mb-2 text-gray-800 dark:text-gray-200 hover:text-primary transition font-display leading-snug">
+                  <a href="/news">Khởi động dự án "Thư viện xanh" tại Hà Giang</a>
+                </h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 leading-relaxed">
+                  Mang hơn 10.000 đầu sách và không gian đọc sách thân thiện đến với trẻ em dân tộc thiểu số tại 5 xã vùng sâu vùng xa.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary text-white py-16 lg:py-20 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-display">
+          Cùng Chung Tay Vì Một Cộng Đồng Tốt Đẹp Hơn
+        </h2>
+        <p class="mb-10 max-w-2xl mx-auto opacity-90 text-lg leading-relaxed">
+          Sự đóng góp của bạn, dù ít hay nhiều, đều là nguồn động viên to lớn giúp chúng tôi tiếp tục hành trình nhân ái, mang lại niềm vui và hy vọng cho những hoàn cảnh khó khăn.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-5">
+          <a class="bg-secondary hover:bg-secondary-dark text-white px-10 py-4 rounded-full font-bold shadow-xl shadow-red-900/30 transition transform hover:scale-105 flex items-center justify-center text-lg" href="/donate">
+            <span class="material-icons mr-2">qr_code</span> Quét QR Ủng Hộ
+          </a>
+          <a class="bg-white text-primary hover:bg-gray-100 px-10 py-4 rounded-full font-bold shadow-xl transition transform hover:scale-105 flex items-center justify-center text-lg" href="/about">
+            <span class="material-icons mr-2">volunteer_activism</span> Đăng Ký Tình Nguyện
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a class="fixed bottom-6 right-6 bg-secondary hover:bg-secondary-dark text-white p-3 rounded-full shadow-lg z-50 transition opacity-80 hover:opacity-100 animate-bounce" href="#">
+      <span class="material-icons">arrow_upward</span>
+    </a>
 ` }) %>

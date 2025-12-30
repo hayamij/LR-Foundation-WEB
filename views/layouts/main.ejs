@@ -1,21 +1,67 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html class="scroll-smooth" lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="<%= config.appDescription %>">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title><%= title %> - <%= config.appName %></title>
+  <meta content="<%= config.appDescription %>" name="description" />
+  
+  <!-- Preconnect to Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Arial:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   
   <!-- Tailwind CSS -->
-  <link href="/css/styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2A7050", // Pantone 555C (Green) - Main Primary
+            secondary: "#B12029", // Pantone 7621C (Red) - Accent/Secondary
+            "primary-dark": "#1e523a",
+            "secondary-dark": "#8a1920",
+            "background-light": "#f8fafc",
+            "background-dark": "#111827",
+            "surface-light": "#ffffff",
+            "surface-dark": "#1f2937",
+            "text-light": "#334155",
+            "text-dark": "#e2e8f0",
+          },
+          fontFamily: {
+            display: ["Montserrat", "sans-serif"],
+            body: ["Arial", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+          },
+        },
+      },
+    };
+  </script>
   
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6, .nav-link, .btn, .font-display {
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
   
   <!-- Custom CSS -->
   <link href="/css/custom.css" rel="stylesheet">
 </head>
-<body class="flex flex-col min-h-screen">
+
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300 flex flex-col min-h-screen">
   <!-- Header -->
   <%- include('../partials/header') %>
   
@@ -27,7 +73,14 @@
   <!-- Footer -->
   <%- include('../partials/footer') %>
   
-  <!-- Scripts -->
+  <!-- Dark Mode Script -->
+  <script>
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
+  
+  <!-- Main JS -->
   <script src="/js/main.js"></script>
 </body>
 </html>
