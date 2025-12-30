@@ -1,75 +1,228 @@
-# LR Foundation WEB UI (Little Roses Foundation)
+# LR Foundation WEB - Version 2.0
 
-> **Sản phẩm dự thi: Thiết kế Website Quỹ Bông Hồng Nhỏ**
->
-> *"Hành trình kết nối những tấm lòng nhân ái qua công nghệ."*
+## 🌹 Tổng Quan
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![Node.js](https://img.shields.io/badge/Node.js-v18.0%2B-green?style=for-the-badge)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey?style=for-the-badge)](https://expressjs.com/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38bdf8?style=for-the-badge)](https://tailwindcss.com/)
+Website Quỹ Bông Hồng Nhỏ (Little Rose Foundation) - Tái cấu trúc hoàn toàn với kiến trúc hiện đại, dễ bảo trì và mở rộng.
 
-## Giới thiệu (Overview)
+## ✨ Tính Năng Mới (v2.0)
 
-Dự án **LR Foundation WEB UI** là một giải pháp website thiện nguyện toàn diện, được thiết kế nhằm mục đích số hóa các hoạt động của **Quỹ Bông Hồng Nhỏ**. Sản phẩm tập trung vào trải nghiệm người dùng (UX), tính minh bạch trong hoạt động và khả năng tương thích đa nền tảng.
+### 🏗️ Kiến Trúc
+- ✅ **EJS Template Engine**: Thay thế HTML tĩnh bằng template động
+- ✅ **Component System**: Header/Footer được quản lý tập trung
+- ✅ **Layout System**: Hỗ trợ layouts linh hoạt
+- ✅ **Frontend/Backend Tách Biệt**: Cấu trúc rõ ràng hơn
 
-Sản phẩm bám sát các yêu cầu thực tế của dự án về tính năng quyên góp, hiển thị báo cáo minh bạch và tối ưu hiệu suất tải trang.
+### 🛠️ Build Pipeline
+- ✅ **Webpack 5**: Bundle và optimize JavaScript
+- ✅ **Tailwind CSS**: Build và purge CSS tự động
+- ✅ **PostCSS**: Autoprefixer và optimization
+- ✅ **Code Splitting**: Tối ưu load time
+- ✅ **Minification**: Tự động nén code trong production
 
-## Tính năng nổi bật (Key Features)
+### 📦 JavaScript Organization
+- ✅ **ES6 Modules**: Module system hiện đại
+- ✅ **Component-based**: Navigation, DarkMode, Animations, Forms
+- ✅ **No Global Pollution**: Clean code organization
+- ✅ **Event Delegation**: Performance optimization
 
-Dựa trên yêu cầu sản phẩm:
+### 🔒 Security & Performance
+- ✅ **Helmet.js**: Security headers
+- ✅ **Compression**: Gzip compression
+- ✅ **CSP**: Content Security Policy
+- ✅ **Lazy Loading**: Images và resources
 
-* **Responsive Design:** Giao diện tương thích hoàn hảo trên Mobile, Tablet và Desktop sử dụng Tailwind CSS.
-* **Easy Donation:** Nút quyên góp (CTA) nổi bật, quy trình ủng hộ đơn giản hóa tối đa.
-* **Transparency Hub:** Khu vực hiển thị Báo cáo tài chính và Cấu chuyện tác động rõ ràng, minh bạch.
-* **Performance Optimization:** Tối ưu hóa hình ảnh và tốc độ tải trang (High Lighthouse Score).
-* **User-Centric UX:** Điều hướng thông minh dành cho cả Nhà tài trợ và Tình nguyện viên.
+## 📁 Cấu Trúc Dự Án (Mới)
 
-## Công nghệ sử dụng (Tech Stack)
+```
+LR-Foundation-WEB/
+├── src/
+│   ├── assets/              # Frontend assets (NEW)
+│   │   ├── css/
+│   │   │   └── input.css    # Tailwind base
+│   │   └── js/
+│   │       ├── index.js     # Main entry
+│   │       └── modules/     # JS modules
+│   │           ├── navigation.js
+│   │           ├── darkMode.js
+│   │           ├── animations.js
+│   │           └── forms.js
+│   ├── controllers/         # Backend controllers
+│   ├── routes/             # API routes
+│   ├── services/           # Business logic
+│   ├── middlewares/        # Express middlewares
+│   │   └── ejsLayout.middleware.js (NEW)
+│   ├── utils/              # Utilities
+│   └── config/             # Configuration
+├── views/                   # EJS Templates (REFACTORED)
+│   ├── layouts/
+│   │   └── main.ejs        # Main layout
+│   ├── partials/
+│   │   ├── header.ejs      # Reusable header
+│   │   └── footer.ejs      # Reusable footer
+│   └── pages/              # Page templates
+│       ├── home.ejs
+│       ├── about.ejs
+│       ├── programs.ejs
+│       ├── news.ejs
+│       ├── donate.ejs
+│       ├── contact.ejs
+│       └── finance.ejs
+├── public/
+│   └── dist/               # Built assets (AUTO-GENERATED)
+│       ├── css/
+│       │   └── styles.css  # Compiled Tailwind CSS
+│       └── js/
+│           └── main.bundle.js  # Bundled JavaScript
+├── webpack.config.js       # Webpack configuration (NEW)
+├── postcss.config.js       # PostCSS configuration (NEW)
+├── tailwind.config.js      # Tailwind configuration (UPDATED)
+└── package.json            # Dependencies (UPDATED)
+```
 
-Dự án được xây dựng với tiêu chí "Đơn giản - Hiệu quả - Dễ bảo trì":
+## 🚀 Cài Đặt
 
-* **Core:** Node.js
-* **Framework:** Express.js (Xử lý routing và server-side logic nhẹ)
-* **View Engine:** EJS (Embedded JavaScript templates)
-* **Styling:** Tailwind CSS (Utility-first CSS framework)
-* **Icons:** FontAwesome / Heroicons
+### Yêu Cầu
+- Node.js >= 18.0.0
+- npm hoặc yarn
 
-## 🗺 Sitemap & Kiến trúc thông tin
+### Bước 1: Clone Repository
+```bash
+git clone https://github.com/hayamij/LR-Foundation-WEB.git
+cd LR-Foundation-WEB
+```
 
-Cấu trúc website tuân thủ sitemap yêu cầu:
+### Bước 2: Cài Đặt Dependencies
+```bash
+npm install
+```
 
-| Main Navigation | Sub-sections |
-| :--- | :--- |
-| **Về Chúng Tôi** | Tầm nhìn, Sứ mệnh, Giá trị cốt lõi, Đội ngũ nhân sự |
-| **Chương Trình - Dự Án** | Hỗ trợ giáo dục, Y tế & Sức khỏe, Bác ái xã hội, Gây quỹ |
-| **Tin Tức & Tài Liệu** | Báo cáo, Câu chuyện tác động, Tài liệu tham khảo |
-| **Đóng Góp Ngay** | Cổng thanh toán, Thông tin chuyển khoản |
+### Bước 3: Build Assets
+```bash
+npm run build
+```
 
-## 🚀 Cài đặt & Chạy thử (Installation)
+### Bước 4: Chạy Development Server
+```bash
+npm run dev
+```
 
-Đảm bảo bạn đã cài đặt [Node.js](https://nodejs.org/) trên máy.
+Server sẽ chạy tại: http://localhost:3000
 
-1.  **Clone repository:**
-    ```bash
-    git clone [https://github.com/hayamij/lr-foundation-web-ui.git](https://github.com/hayamij/lr-foundation-web-ui.git)
-    cd lr-foundation-web-ui
-    ```
+## 📝 Scripts
 
-2.  **Cài đặt dependencies:**
-    ```bash
-    npm install
-    ```
+```bash
+# Development mode (hot reload)
+npm run dev
 
-3.  **Biên dịch Tailwind CSS (Watch mode):**
-    ```bash
-    npm run watch:css
-    ```
+# Build production assets
+npm run build
 
-4.  **Khởi chạy server (Development):**
-    ```bash
-    npm run dev
-    ```
+# Start production server
+npm start
 
-5.  **Truy cập:**
-    Mở trình duyệt tại địa chỉ: `http://localhost:3000`
+# Build CSS only
+npm run build:css
+
+# Watch CSS changes
+npm run watch:css
+```
+
+## 🔧 Công Nghệ Sử Dụng
+
+### Backend
+- **Express.js** - Web framework
+- **EJS** - Template engine
+- **Helmet** - Security middleware
+- **Compression** - Response compression
+
+### Frontend
+- **Tailwind CSS** - Utility-first CSS
+- **Vanilla JavaScript** - ES6+ modules
+- **Material Icons** - Icon library
+
+### Build Tools
+- **Webpack 5** - Module bundler
+- **PostCSS** - CSS processor
+- **Autoprefixer** - CSS vendor prefixing
+- **Terser** - JavaScript minifier
+
+### Development
+- **Nodemon** - Auto-restart server
+- **npm-run-all** - Run multiple scripts
+
+## 🎨 Customization
+
+### Thay Đổi Theme Colors
+Edit `tailwind.config.js`:
+```javascript
+theme: {
+  extend: {
+    colors: {
+      primary: '#2A7050',
+      secondary: '#B12029',
+      // Add your colors...
+    }
+  }
+}
+```
+
+### Thêm Custom CSS
+Edit `src/assets/css/input.css`:
+```css
+@layer components {
+  .your-custom-class {
+    /* Your styles */
+  }
+}
+```
+
+### Thêm JavaScript Module
+Create file trong `src/assets/js/modules/` và import vào `index.js`
+
+## 🔍 So Sánh v1.0 vs v2.0
+
+| Tính năng | v1.0 | v2.0 |
+|-----------|------|------|
+| Template Engine | ❌ Static HTML | ✅ EJS Dynamic |
+| Component Management | ❌ Fetch-based | ✅ Server-side includes |
+| CSS Build | ❌ CDN | ✅ Tailwind Build |
+| JS Organization | ❌ Global scope | ✅ ES6 Modules |
+| Build Pipeline | ❌ None | ✅ Webpack |
+| Code Splitting | ❌ None | ✅ Automatic |
+| CSS Purging | ❌ None | ✅ Automatic |
+| Security Headers | ❌ None | ✅ Helmet |
+| Compression | ❌ None | ✅ Gzip |
+
+## 📚 Tài Liệu Thêm
+
+- [Express.js Documentation](https://expressjs.com/)
+- [EJS Documentation](https://ejs.co/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/)
+- [Webpack Documentation](https://webpack.js.org/)
+
+## 🤝 Đóng Góp
+
+Mọi đóng góp đều được chào đón! Vui lòng:
+1. Fork repository
+2. Tạo branch mới (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Mở Pull Request
+
+## 📄 License
+
+MIT License - Xem file [LICENSE](LICENSE) để biết thêm chi tiết
+
+## 👥 Team
+
+LR Foundation Team - [@hayamij](https://github.com/hayamij)
+
+## 🌟 Acknowledgments
+
+- Tailwind CSS team
+- Express.js community
+- All contributors and supporters
+
+---
+
+Made with ❤️ for Vietnamese children

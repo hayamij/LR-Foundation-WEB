@@ -1,18 +1,41 @@
-const path = require('path');
+/**
+ * Donate Controller
+ * Handles donation pages and processing
+ */
+
 const donationService = require('../services/donation.service');
+const { validateDonationForm, sanitizeDonationData } = require('../validators/donation.validator');
+const Donation = require('../models/donation.model');
 const { sendSuccess, sendError } = require('../utils/response.util');
 
 exports.getDonatePage = (req, res) => {
-  res.sendFile(path.join(__dirname, '../../views/quyengop.html'));
+  res.render('pages/donate', {
+    pageTitle: 'Quyên góp',
+    pageDescription: 'Quyên góp để hỗ trợ trẻ em Việt Nam cùng Quỹ Bông Hồng Nhỏ',
+    layout: 'layouts/main'
+  });
 };
 
 exports.getDonateConfirmPage = (req, res) => {
-  res.sendFile(path.join(__dirname, '../../views/quyengopConfirm.html'));
+  res.render('pages/donate-confirm', {
+    pageTitle: 'Xác nhận quyên góp',
+    pageDescription: 'Xác nhận thông tin quyên góp',
+    layout: 'layouts/main'
+  });
 };
 
 exports.postDonation = async (req, res) => {
   try {
-    const result = await donationService.processDonation(req.body);
+    // Sanitize and validate input
+    const sanitizedData = sanitizeDonationData(req.body);
+    const validation = validateDonationForm(sanitizedData);
+
+    if (!validation.isValid) {
+      return sendError(res, 'Dữ liệu không hợp lệ', 400, validation.errors);
+    }
+
+    // Process donation through service
+    const result = await donationService.processDonation(sanitizedData);
     
     if (result.success) {
       return sendSuccess(res, result.data, result.message);
