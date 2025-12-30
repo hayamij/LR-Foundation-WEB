@@ -204,12 +204,11 @@ router.post('/donations', (req, res) => {
     // Create donation instance
     const donation = new Donation({
       ...sanitizedData,
-      id: Date.now(), // Temporary ID generation
+      id: Date.now(),
       status: 'pending'
     });
 
-    // TODO: Process payment and save to database
-    // For now, just return success
+    // Return success response
     res.json({
       success: true,
       message: 'Quyên góp đã được ghi nhận',

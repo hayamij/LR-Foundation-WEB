@@ -44,7 +44,6 @@ exports.postDonation = async (req, res) => {
       return sendError(res, result.message || 'Có lỗi xảy ra', 400, result.errors);
     }
   } catch (error) {
-    console.error('Donation error:', error);
     return sendError(res, 'Có lỗi xảy ra khi xử lý quyên góp', 500);
   }
 };

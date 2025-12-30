@@ -105,8 +105,6 @@ class DonationService {
             };
         }
 
-        console.log('Processing donation:', data);
-
         return {
             success: true,
             message: 'Cảm ơn sự đóng góp của bạn!',
