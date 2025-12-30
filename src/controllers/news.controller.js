@@ -7,7 +7,8 @@ exports.getNewsPage = (req, res) => {
   res.render('pages/news', {
     pageTitle: 'Tin tức',
     pageDescription: 'Tin tức và cập nhật mới nhất từ Quỹ Bông Hồng Nhỏ',
-    layout: 'layouts/main'
+    layout: 'layouts/main',
+    pageScript: 'news.js'
   });
 };
 

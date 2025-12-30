@@ -7,7 +7,8 @@ exports.getProgramsPage = (req, res) => {
   res.render('pages/programs', {
     pageTitle: 'Chương trình',
     pageDescription: 'Các chương trình và dự án của Quỹ Bông Hồng Nhỏ',
-    layout: 'layouts/main'
+    layout: 'layouts/main',
+    pageScript: 'programs.js'
   });
 };
 

@@ -9,7 +9,8 @@ exports.getContactPage = (req, res) => {
   res.render('pages/contact', {
     pageTitle: 'Liên hệ',
     pageDescription: 'Liên hệ với Quỹ Bông Hồng Nhỏ - Chúng tôi luôn sẵn sàng lắng nghe',
-    layout: 'layouts/main'
+    layout: 'layouts/main',
+    pageScript: 'contact.js'
   });
 };
 
