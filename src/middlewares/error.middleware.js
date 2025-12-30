@@ -1,14 +1,18 @@
+const config = require('../config/app.config');
+
 module.exports = (err, req, res, next) => {
-  console.error('Error:', err.message);
-  console.error(err.stack);
+    console.error('Error:', err.message);
+    console.error(err.stack);
 
-  const statusCode = err.statusCode || 500;
-  const message = err.message || 'Đã xảy ra lỗi hệ thống';
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Đã xảy ra lỗi hệ thống';
 
-  res.status(statusCode).render('pages/error', {
-    title: 'Lỗi',
-    statusCode,
-    message,
-    error: process.env.NODE_ENV === 'development' ? err : {}
-  });
+    res.status(statusCode).render('pages/error', {
+        title: 'Lỗi',
+        statusCode,
+        message,
+        error: process.env.NODE_ENV === 'development' ? err : {},
+        config: config,
+        page: 'error'
+    });
 };
