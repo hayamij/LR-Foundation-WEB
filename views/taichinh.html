@@ -54,15 +54,10 @@
     </script>
   </head>
   <body
-    class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased selection:bg-primary/20 selection:text-primary"
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300 flex flex-col min-h-screen"
   >
-    <div
-      class="w-full bg-white dark:bg-[#1a1a1a] border-b border-[#f4f0f0] dark:border-gray-800 sticky top-0 z-50 shadow-sm transition-all duration-300"
-    >
-      <div class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-10 py-3 lg:py-4">
-        <header data-component="header" class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark shadow-md"></header>
-      </div>
-    </div>
+    <header data-component="header" class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark shadow-md"></header>
+    <main class="flex-grow">
     <div class="w-full bg-white dark:bg-[#1a1a1a]">
       <div class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-10 py-6 lg:py-8">
         <div class="@container rounded-2xl overflow-hidden shadow-2xl">
@@ -932,6 +927,7 @@
         </div>
       </div>
     </div>
+    </main>
     <footer data-component="footer" class="bg-gray-900 text-gray-300 pt-16 lg:pt-20 pb-8 border-t-4 border-secondary"></footer>
 <a class="fixed bottom-6 right-6 bg-secondary hover:bg-secondary-dark text-white p-3 rounded-full shadow-lg z-50 transition opacity-80 hover:opacity-100 animate-bounce" href="#">
   <span class="material-icons">arrow_upward</span>
