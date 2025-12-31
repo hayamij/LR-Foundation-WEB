@@ -5,41 +5,7 @@
 
 const express = require('express');
 const router = express.Router();
-
-// Mock data - Replace with actual database queries later
-const mockPrograms = [
-  {
-    id: 1,
-    title: 'Học bổng Bông Hồng Nhỏ',
-    category: 'education',
-    status: 'active',
-    targetAmount: 100000000,
-    raisedAmount: 75000000
-  },
-  {
-    id: 2,
-    title: 'Thư viện Tri thức',
-    category: 'education',
-    status: 'active',
-    targetAmount: 50000000,
-    raisedAmount: 30000000
-  }
-];
-
-const mockNews = [
-  {
-    id: 1,
-    title: 'Trao học bổng cho 100 học sinh nghèo vượt khó',
-    category: 'activity',
-    publishedAt: '2024-12-15'
-  },
-  {
-    id: 2,
-    title: 'Xây dựng thư viện cho trường tiểu học vùng cao',
-    category: 'story',
-    publishedAt: '2024-12-10'
-  }
-];
+const { mockPrograms, mockNews } = require('../data/mockData');
 
 /**
  * GET /api/programs
@@ -184,39 +150,30 @@ router.get('/news/:id', (req, res) => {
  * POST /api/donations
  * Submit a donation
  */
-router.post('/donations', (req, res) => {
+router.post('/donations', async (req, res) => {
   try {
-    const { validateDonationForm, sanitizeDonationData } = require('../validators/donation.validator');
-    const Donation = require('../models/donation.model');
+    const donationService = require('../services/donation.service');
+    const { sanitizeDonationData } = require('../validators/donation.validator');
 
     // Sanitize input
     const sanitizedData = sanitizeDonationData(req.body);
 
-    // Validate input
-    const validation = validateDonationForm(sanitizedData);
-    if (!validation.isValid) {
+    // Process through service (includes validation)
+    const result = await donationService.processDonation(sanitizedData);
+
+    if (!result.success) {
       return res.status(400).json({
         success: false,
-        errors: validation.errors
+        errors: result.errors,
+        message: result.message
       });
     }
-
-    // Create donation instance
-    const donation = new Donation({
-      ...sanitizedData,
-      id: Date.now(),
-      status: 'pending'
-    });
 
     // Return success response
     res.json({
       success: true,
-      message: 'Quyên góp đã được ghi nhận',
-      data: {
-        id: donation.id,
-        amount: donation.getFormattedAmount(),
-        transactionId: `TXN${Date.now()}`
-      }
+      message: result.message,
+      data: result.data
     });
   } catch (error) {
     res.status(500).json({

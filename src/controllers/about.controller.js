@@ -10,19 +10,3 @@ exports.getAboutPage = (req, res) => {
     layout: 'layouts/main'
   });
 };
-
-exports.getVisionPage = (req, res) => {
-  res.render('pages/about', {
-    pageTitle: 'Tầm nhìn & Sứ mệnh',
-    pageDescription: 'Tầm nhìn và sứ mệnh của Quỹ Bông Hồng Nhỏ',
-    layout: 'layouts/main'
-  });
-};
-
-exports.getTeamPage = (req, res) => {
-  res.render('pages/about', {
-    pageTitle: 'Đội ngũ',
-    pageDescription: 'Đội ngũ làm việc tại Quỹ Bông Hồng Nhỏ',
-    layout: 'layouts/main'
-  });
-};

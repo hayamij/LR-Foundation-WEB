@@ -92,16 +92,7 @@ const sanitizeDonationData = (data) => {
   };
 };
 
-/**
- * Validate preset donation amounts
- */
-const validatePresetAmount = (amount) => {
-  const validPresets = [50000, 100000, 200000, 500000, 1000000, 2000000, 5000000];
-  return validPresets.includes(parseInt(amount));
-};
-
 module.exports = {
   validateDonationForm,
-  sanitizeDonationData,
-  validatePresetAmount
+  sanitizeDonationData
 };

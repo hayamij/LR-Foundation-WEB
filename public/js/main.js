@@ -1,6 +1,7 @@
 /**
  * Main JavaScript - LR Foundation Website
- * Core functionality and animations
+ * Core functionality, animations and utilities
+ * Centralized script to avoid code duplication
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize back to top button
   initBackToTop();
   
-  // Initialize mobile menu (if needed)
+  // Initialize mobile menu
   initMobileMenu();
   
   // Initialize dark mode toggle
@@ -21,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Add CSS animations to document
   addAnimationStyles();
+  
+  // Initialize page-specific features
+  initPageSpecific();
 });
 
 // Smooth scroll for anchor links
@@ -239,3 +243,297 @@ window.formatDate = function(date) {
     day: 'numeric'
   }).format(new Date(date));
 };
+
+// Utility: Show success modal
+window.showSuccessModal = function(message) {
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4';
+  modal.innerHTML = `
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full animate-scaleIn">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="material-icons text-green-600 text-4xl">check_circle</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Thành công!</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">${message}</p>
+        <button onclick="this.closest('.fixed').remove()" 
+          class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-bold transition-colors">
+          Đóng
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.remove();
+  });
+};
+
+// Utility: Show error modal
+window.showErrorModal = function(message) {
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4';
+  modal.innerHTML = `
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full animate-scaleIn">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="material-icons text-red-600 text-4xl">error</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Lỗi!</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">${message}</p>
+        <button onclick="this.closest('.fixed').remove()" 
+          class="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-bold transition-colors">
+          Đóng
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.remove();
+  });
+};
+
+// Initialize page-specific features
+function initPageSpecific() {
+  const path = window.location.pathname;
+  
+  if (path.includes('/programs')) {
+    initProgramsPage();
+  } else if (path.includes('/news')) {
+    initNewsPage();
+  } else if (path.includes('/donate')) {
+    initDonatePage();
+  } else if (path.includes('/contact')) {
+    initContactPage();
+  } else if (path === '/' || path === '/home') {
+    initHomePage();
+  }
+}
+
+// Programs page initialization
+function initProgramsPage() {
+  // Setup filter buttons
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      filterPrograms(filter);
+      
+      // Update active button
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white');
+      });
+      button.classList.add('bg-primary', 'text-white');
+    });
+  });
+  
+  // Setup search
+  const searchInput = document.querySelector('input[type="search"]');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchPrograms(e.target.value);
+    });
+  }
+}
+
+// News page initialization
+function initNewsPage() {
+  // Setup category filters
+  const categoryButtons = document.querySelectorAll('[data-category-filter]');
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category-filter');
+      filterNews(category);
+      
+      // Update active button
+      categoryButtons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white', 'font-bold', 'shadow-sm');
+        btn.classList.add('bg-surface-light', 'dark:bg-surface-dark', 'border', 'font-semibold');
+      });
+      button.classList.remove('bg-surface-light', 'dark:bg-surface-dark', 'border', 'font-semibold');
+      button.classList.add('bg-primary', 'text-white', 'font-bold', 'shadow-sm');
+    });
+  });
+}
+
+// Donate page initialization  
+function initDonatePage() {
+  // Setup form submission
+  const form = document.querySelector('#donateForm');
+  if (form) {
+    form.addEventListener('submit', handleDonationSubmit);
+  }
+}
+
+// Contact page initialization
+function initContactPage() {
+  const form = document.querySelector('#contactForm');
+  if (form) {
+    form.addEventListener('submit', handleContactSubmit);
+  }
+}
+
+// Home page initialization
+function initHomePage() {
+  // Setup CTA buttons
+  const ctaButtons = document.querySelectorAll('[data-cta]');
+  ctaButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const action = button.getAttribute('data-cta');
+      if (action === 'donate') {
+        window.location.href = '/donate';
+      } else if (action === 'programs') {
+        window.location.href = '/programs';
+      } else if (action === 'about') {
+        window.location.href = '/about';
+      }
+    });
+  });
+}
+
+// API Functions - Removed loadPrograms and loadNews as data is server-side rendered
+
+function filterPrograms(status) {
+  const cards = document.querySelectorAll('[data-category]');
+  cards.forEach(card => {
+    if (status === 'all' || card.getAttribute('data-category') === status) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function filterNews(category) {
+  const cards = document.querySelectorAll('[data-category]');
+  cards.forEach(card => {
+    if (category === 'all' || card.getAttribute('data-category') === category) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function searchPrograms(term) {
+  const cards = document.querySelectorAll('[data-category]');
+  const searchTerm = term.toLowerCase();
+  
+  cards.forEach(card => {
+    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+    const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+    
+    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+async function handleDonationSubmit(e) {
+  e.preventDefault();
+  
+  const form = e.target;
+  
+  // Get form data using modern FormData API
+  const formDataObj = new FormData(form);
+  
+  // Get selected amount from radio buttons or custom input
+  let amount = 0;
+  const selectedAmountRadio = form.querySelector('input[name="amount"]:checked');
+  if (selectedAmountRadio && selectedAmountRadio.value !== 'other') {
+    amount = parseInt(selectedAmountRadio.value);
+  } else {
+    // Get from custom amount input
+    const customAmountInput = form.querySelector('input[name="amount"][type="number"]');
+    amount = customAmountInput ? parseInt(customAmountInput.value) : 0;
+  }
+  
+  // Get selected frequency
+  const selectedFrequency = form.querySelector('input[name="frequency"]:checked');
+  const frequency = selectedFrequency ? selectedFrequency.value : 'once';
+  
+  // Get selected payment method
+  const selectedPayment = form.querySelector('input[name="payment_method"]:checked');
+  const paymentMethod = selectedPayment ? 'qr' : 'qr'; // Default to qr
+  
+  // Build data object matching backend expectations
+  const formData = {
+    donorName: formDataObj.get('name') || '',
+    donorEmail: formDataObj.get('email') || '',
+    donorPhone: formDataObj.get('phone') || '',
+    amount: amount,
+    frequency: frequency,
+    paymentMethod: paymentMethod,
+    message: formDataObj.get('message') || '',
+    isAnonymous: formDataObj.get('anonymous') === 'on'
+  };
+  
+  // Validate amount
+  if (!formData.amount || formData.amount < 10000) {
+    showToast('Vui lòng chọn số tiền quyên góp (tối thiểu 10,000 VNĐ)', 'error');
+    return;
+  }
+  
+  try {
+    const response = await fetch('/api/donations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      showSuccessModal('Cảm ơn bạn đã quyên góp! Chúng tôi sẽ liên hệ sớm nhất.');
+      form.reset();
+    } else {
+      const errorMsg = result.message || result.error || 'Có lỗi xảy ra. Vui lòng thử lại.';
+      showErrorModal(errorMsg);
+    }
+  } catch (error) {
+    console.error('Donation error:', error);
+    showErrorModal('Có lỗi xảy ra. Vui lòng thử lại.');
+  }
+}
+
+async function handleContactSubmit(e) {
+  e.preventDefault();
+  
+  const form = e.target;
+  
+  // Use FormData API to automatically collect all form fields with name attributes
+  const formDataObj = new FormData(form);
+  
+  // Convert FormData to plain object
+  const formData = {
+    name: formDataObj.get('name') || '',
+    email: formDataObj.get('email') || '',
+    phone: formDataObj.get('phone') || '',
+    subject: formDataObj.get('subject') || '',
+    message: formDataObj.get('message') || ''
+  };
+  
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      showSuccessModal('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.');
+      form.reset();
+    } else {
+      const errorMsg = result.message || result.error || 'Có lỗi xảy ra. Vui lòng thử lại.';
+      showErrorModal(errorMsg);
+    }
+  } catch (error) {
+    console.error('Contact form error:', error);
+    showErrorModal('Có lỗi xảy ra. Vui lòng thử lại.');
+  }
+}
