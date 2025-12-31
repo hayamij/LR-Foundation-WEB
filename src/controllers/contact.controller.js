@@ -4,13 +4,14 @@
  */
 
 const { validateContactForm, sanitizeContactData } = require('../validators/contact.validator');
+const { sendSuccess, sendError } = require('../utils/response.util');
 
 exports.getContactPage = (req, res) => {
   res.render('pages/contact', {
     pageTitle: 'Liên hệ',
     pageDescription: 'Liên hệ với Quỹ Bông Hồng Nhỏ - Chúng tôi luôn sẵn sàng lắng nghe',
     layout: 'layouts/main',
-    pageScript: 'contact.js'
+    pageScript: 'main.js'
   });
 };
 
@@ -21,21 +22,18 @@ exports.postContact = async (req, res) => {
     const validation = validateContactForm(sanitizedData);
 
     if (!validation.isValid) {
-      return res.status(400).json({
-        success: false,
-        errors: validation.errors
-      });
+      return sendError(res, 'Dữ liệu không hợp lệ', 400, validation.errors);
     }
 
-    // Success response
-    res.json({
-      success: true,
-      message: 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.'
-    });
+    // TODO: Save to database and send email notification
+    // For now, just return success
+    return sendSuccess(
+      res, 
+      { submittedAt: new Date() },
+      'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.'
+    );
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Có lỗi xảy ra. Vui lòng thử lại.'
-    });
+    console.error('Contact form error:', error);
+    return sendError(res, 'Có lỗi xảy ra. Vui lòng thử lại.', 500);
   }
 };

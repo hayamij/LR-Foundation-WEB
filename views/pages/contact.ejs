@@ -184,7 +184,7 @@
                     Điền thông tin vào biểu mẫu bên dưới, chúng tôi sẽ liên hệ
                     lại sớm nhất.
                   </p>
-                  <form class="flex flex-col gap-5 md:gap-6">
+                  <form id="contactForm" class="flex flex-col gap-5 md:gap-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
                       <div class="flex flex-col gap-2">
                         <label
@@ -193,10 +193,12 @@
                           >Họ và tên <span class="text-primary">*</span></label
                         >
                         <input
+                          name="name"
                           class="w-full h-11 md:h-12 rounded-lg border border-[#e0dcdc] dark:border-gray-700 bg-[#fbf9f9] dark:bg-black/20 px-4 text-sm md:text-base text-text-light dark:text-white placeholder:text-[#a69c9c] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                           id="name"
                           placeholder="Nhập họ và tên của bạn"
                           type="text"
+                          required
                         />
                       </div>
                       <div class="flex flex-col gap-2">
@@ -206,10 +208,12 @@
                           >Số điện thoại</label
                         >
                         <input
+                          name="phone"
                           class="w-full h-11 md:h-12 rounded-lg border border-[#e0dcdc] dark:border-gray-700 bg-[#fbf9f9] dark:bg-black/20 px-4 text-sm md:text-base text-text-light dark:text-white placeholder:text-[#a69c9c] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                           id="phone"
                           placeholder="Nhập số điện thoại"
                           type="tel"
+                          required
                         />
                       </div>
                     </div>
@@ -220,10 +224,12 @@
                         >Email <span class="text-primary">*</span></label
                       >
                       <input
+                        name="email"
                         class="w-full h-11 md:h-12 rounded-lg border border-[#e0dcdc] dark:border-gray-700 bg-[#fbf9f9] dark:bg-black/20 px-4 text-sm md:text-base text-text-light dark:text-white placeholder:text-[#a69c9c] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                         id="email"
                         placeholder="Nhập địa chỉ email"
                         type="email"
+                        required
                       />
                     </div>
                     <div class="flex flex-col gap-2">
@@ -234,8 +240,10 @@
                       >
                       <div class="relative">
                         <select
+                          name="subject"
                           class="w-full h-11 md:h-12 rounded-lg border border-[#e0dcdc] dark:border-gray-700 bg-[#fbf9f9] dark:bg-black/20 px-4 text-sm md:text-base text-text-light dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none transition-all"
                           id="subject"
+                          required
                         >
                           <option>Đóng góp ý kiến</option>
                           <option>Hỗ trợ quyên góp</option>
@@ -260,14 +268,17 @@
                         <span class="text-primary">*</span></label
                       >
                       <textarea
+                        name="message"
                         class="w-full rounded-lg border border-[#e0dcdc] dark:border-gray-700 bg-[#fbf9f9] dark:bg-black/20 px-4 py-3 text-sm md:text-base text-text-light dark:text-white placeholder:text-[#a69c9c] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
                         id="message"
                         placeholder="Nhập nội dung bạn muốn gửi..."
                         rows="5"
+                        required
                       ></textarea>
                     </div>
                     <div class="pt-2">
                       <button
+                        type="submit"
                         class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary hover:bg-red-700 text-white text-base font-bold leading-normal tracking-[0.015em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 duration-200"
                       >
                         <span class="mr-2">Gửi Tin Nhắn</span>
