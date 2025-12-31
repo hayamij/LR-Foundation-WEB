@@ -106,25 +106,30 @@
               class="sticky top-[73px] z-30 bg-background-light dark:bg-background-dark pt-2 pb-1 -mx-4 px-4 sm:mx-0 sm:px-0"
             >
               <div
+                id="program-tabs"
                 class="flex border-b border-gray-200 overflow-x-auto scrollbar-hide"
               >
                 <button
-                  class="px-4 sm:px-6 py-3 border-b-2 border-primary text-primary font-bold text-sm sm:text-base whitespace-nowrap"
+                  data-tab="story"
+                  class="tab-btn active px-4 sm:px-6 py-3 border-b-2 border-primary text-primary font-bold text-sm sm:text-base whitespace-nowrap"
                 >
                   Câu chuyện
                 </button>
                 <button
-                  class="px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-primary dark:hover:text-primary font-medium text-sm sm:text-base whitespace-nowrap transition-colors"
+                  data-tab="updates"
+                  class="tab-btn px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-primary dark:hover:text-primary font-medium text-sm sm:text-base whitespace-nowrap transition-colors"
                 >
                   Cập nhật
                 </button>
                 <button
-                  class="px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-primary dark:hover:text-primary font-medium text-sm sm:text-base whitespace-nowrap transition-colors"
+                  data-tab="finance"
+                  class="tab-btn px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-primary dark:hover:text-primary font-medium text-sm sm:text-base whitespace-nowrap transition-colors"
                 >
                   Minh bạch tài chính
                 </button>
                 <button
-                  class="px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-primary dark:hover:text-primary font-medium text-sm sm:text-base whitespace-nowrap transition-colors"
+                  data-tab="comments"
+                  class="tab-btn px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-primary dark:hover:text-primary font-medium text-sm sm:text-base whitespace-nowrap transition-colors"
                 >
                   Bình luận
                 </button>

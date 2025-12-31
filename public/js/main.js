@@ -300,6 +300,8 @@ function initPageSpecific() {
   
   if (path.includes('/programs')) {
     initProgramsPage();
+    // Initialize program detail tabs if on detail page
+    initProgramTabs();
   } else if (path.includes('/news')) {
     initNewsPage();
   } else if (path.includes('/donate')) {
@@ -309,6 +311,9 @@ function initPageSpecific() {
   } else if (path === '/' || path === '/home') {
     initHomePage();
   }
+  
+  // Initialize newsletter form globally (in footer)
+  initNewsletterForm();
 }
 
 // Programs page initialization
@@ -390,6 +395,43 @@ function initHomePage() {
       }
     });
   });
+  
+  // Setup newsletter form
+  initNewsletterForm();
+}
+
+// Newsletter form handler (used globally in footer)
+function initNewsletterForm() {
+  const newsletterForm = document.querySelector('#newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(newsletterForm);
+      const email = formData.get('email');
+      
+      if (!email || !isValidEmail(email)) {
+        showToast('Vui lòng nhập email hợp lệ', 'error');
+        return;
+      }
+      
+      try {
+        // For now, just show success message
+        // In production, this would call an API endpoint
+        showSuccessModal('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi tin tức mới nhất đến email của bạn.');
+        newsletterForm.reset();
+      } catch (error) {
+        console.error('Newsletter error:', error);
+        showErrorModal('Có lỗi xảy ra. Vui lòng thử lại sau.');
+      }
+    });
+  }
+}
+
+// Email validation helper
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }
 
 // API Functions - Removed loadPrograms and loadNews as data is server-side rendered
@@ -536,4 +578,116 @@ async function handleContactSubmit(e) {
     console.error('Contact form error:', error);
     showErrorModal('Có lỗi xảy ra. Vui lòng thử lại.');
   }
+}
+// ========== Program Detail Tab Switching ==========
+function initProgramTabs() {
+  const tabContainer = document.getElementById('program-tabs');
+  if (!tabContainer) return;
+
+  const tabButtons = tabContainer.querySelectorAll('.tab-btn');
+  
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      tabButtons.forEach(btn => {
+        btn.classList.remove('active', 'border-primary', 'text-primary', 'font-bold');
+        btn.classList.add('border-transparent', 'text-gray-500', 'font-medium');
+      });
+      
+      // Add active class to clicked button
+      button.classList.remove('border-transparent', 'text-gray-500', 'font-medium');
+      button.classList.add('active', 'border-primary', 'text-primary', 'font-bold');
+      
+      // Show appropriate content (for now just visual feedback)
+      const tabName = button.getAttribute('data-tab');
+      console.log('Switched to tab:', tabName);
+    });
+  });
+}
+
+// ========== Donate Confirm Page Functions ==========
+function copyTransactionCode() {
+  const codeElement = document.getElementById('transaction-code');
+  if (!codeElement) return;
+  
+  const code = codeElement.textContent.trim();
+  
+  navigator.clipboard.writeText(code).then(() => {
+    showToast('Đã sao chép mã giao dịch!', 'success');
+  }).catch(err => {
+    console.error('Copy failed:', err);
+    showToast('Không thể sao chép', 'error');
+  });
+}
+
+function downloadReceipt() {
+  // Simulate receipt download
+  showToast('Đang tải biên lai...', 'info');
+  setTimeout(() => {
+    showToast('Biên lai đã được tải về!', 'success');
+  }, 1000);
+}
+
+function shareReceipt() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Biên lai quyên góp - Quỹ Bông Hồng Nhỏ',
+      text: 'Tôi vừa quyên góp cho Quỹ Bông Hồng Nhỏ. Hãy cùng chung tay giúp đỡ trẻ em nghèo!',
+      url: window.location.href
+    }).then(() => {
+      showToast('Đã chia sẻ!', 'success');
+    }).catch(err => {
+      console.log('Share cancelled or failed:', err);
+    });
+  } else {
+    showToast('Trình duyệt không hỗ trợ chia sẻ', 'error');
+  }
+}
+
+// ========== News Detail Page Functions ==========
+function shareFacebook() {
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+}
+
+function toggleFavorite(button) {
+  button.classList.toggle('text-primary');
+  const isFavorited = button.classList.contains('text-primary');
+  showToast(isFavorited ? 'Đã thêm vào yêu thích!' : 'Đã bỏ yêu thích', 'info');
+}
+
+function copyPageLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    showToast('Đã sao chép liên kết!', 'success');
+  }).catch(err => {
+    console.error('Copy failed:', err);
+    showToast('Không thể sao chép', 'error');
+  });
+}
+
+// ========== Toast Notification ==========
+function showToast(message, type = 'info') {
+  // Remove existing toast if any
+  const existingToast = document.getElementById('toast-notification');
+  if (existingToast) {
+    existingToast.remove();
+  }
+  
+  const colors = {
+    success: 'bg-green-500',
+    error: 'bg-red-500',
+    info: 'bg-blue-500'
+  };
+  
+  const toast = document.createElement('div');
+  toast.id = 'toast-notification';
+  toast.className = `fixed top-20 right-4 ${colors[type]} text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in-down`;
+  toast.textContent = message;
+  
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.classList.add('animate-fade-out-up');
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
 }
