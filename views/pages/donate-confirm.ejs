@@ -98,11 +98,13 @@
                   </p>
                   <div class="flex items-center gap-2">
                     <p
+                      id="transaction-code"
                       class="text-text-main dark:text-gray-200 text-sm font-medium font-mono bg-gray-50 dark:bg-gray-800/50 inline-block px-2 py-1 rounded w-fit border border-gray-100 dark:border-gray-700"
                     >
                       #BONGHONG1234
                     </p>
                     <button
+                      onclick="copyTransactionCode()"
                       class="text-gray-400 hover:text-primary transition-colors"
                       title="Sao chép"
                     >
@@ -170,6 +172,7 @@
         </div>
         <div class="w-full grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-2">
           <button
+            onclick="downloadReceipt()"
             class="w-full h-12 cursor-pointer rounded-lg px-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-text-main dark:text-gray-200 text-sm font-bold transition-all flex items-center justify-center group"
           >
             <span class="flex items-center gap-2">
@@ -181,6 +184,7 @@
             </span>
           </button>
           <button
+            onclick="shareReceipt()"
             class="w-full h-12 cursor-pointer rounded-lg px-4 bg-[#1877F2] hover:bg-[#1565C0] text-white text-sm font-bold transition-all flex items-center justify-center shadow-sm hover:shadow-md"
           >
             <span class="flex items-center gap-2">
@@ -188,7 +192,8 @@
               Chia sẻ
             </span>
           </button>
-          <button
+          <a
+            href="/"
             class="w-full h-12 cursor-pointer rounded-lg px-4 bg-primary hover:bg-red-700 text-white text-sm font-bold tracking-wide transition-all shadow-lg shadow-red-200 dark:shadow-none hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center"
           >
             <span class="flex items-center gap-2">
@@ -197,7 +202,7 @@
                 >arrow_forward</span
               >
             </span>
-          </button>
+          </a>
         </div>
         <div class="mt-2 text-center">
           <a
