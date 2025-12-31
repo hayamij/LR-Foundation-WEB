@@ -14,9 +14,7 @@ package-lock.json
 yarn.lock
 
 # Build files
-dist/
 build/
-public/dist/
 *.log
 
 # OS files
