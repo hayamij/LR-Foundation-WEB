@@ -300,8 +300,6 @@ function initPageSpecific() {
   
   if (path.includes('/programs')) {
     initProgramsPage();
-    // Initialize program detail tabs if on detail page
-    initProgramTabs();
   } else if (path.includes('/news')) {
     initNewsPage();
   } else if (path.includes('/donate')) {
