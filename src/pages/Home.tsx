@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
 import { ImpactCard, ProgramCard, StatItem, NewsCard, /*DonorTicker,*/ TopDonors, DonorTestimonials } from '../components/features';
-import { SITE_CONFIG, IMPACT_AREAS, PROGRAMS, NEWS } from '../config/constants';
+import { SITE_CONFIG, IMPACT_AREAS, PROGRAMS, NEWS, SPONSORS } from '../config/constants';
 
 export default function Home() {
   const featuredPrograms = PROGRAMS.filter(p => p.urgent || p.progress >= 80).slice(0, 3);
@@ -42,6 +42,7 @@ export default function Home() {
 
   const [currentStoryImageIndex, setCurrentStoryImageIndex] = useState(0);
   const [currentHeroImageIndex, setCurrentHeroImageIndex] = useState(0);
+  const [currentSponsorIndex, setCurrentSponsorIndex] = useState(0);
 
   useEffect(() => {
     const storyInterval = setInterval(() => {
@@ -52,9 +53,14 @@ export default function Home() {
       setCurrentHeroImageIndex((prev) => (prev + 1) % heroImages.length);
     }, 5000);
 
+    const sponsorInterval = setInterval(() => {
+      setCurrentSponsorIndex((prev) => (prev + 1) % SPONSORS.length);
+    }, 3000); // 3 seconds for sponsors
+
     return () => {
       clearInterval(storyInterval);
       clearInterval(heroInterval);
+      clearInterval(sponsorInterval);
     };
   }, [storyImages.length, heroImages.length]);
 
@@ -158,6 +164,91 @@ export default function Home() {
           <span className="material-icons text-white text-2xl">chevron_right</span>
         </button>
       </section>
+
+      {/* Sponsors Section - Auto-sliding */}
+      <Section background="white" padding="lg">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-4 font-semibold">
+              <span className="material-icons">handshake</span>
+              <span>Đối Tác & Nhà Tài Trợ</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Những Người <span className="text-blue-600">Đồng Hành</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Chúng tôi tự hào được đồng hành cùng các tổ chức và doanh nghiệp uy tín
+            </p>
+          </div>
+
+          {/* Auto-sliding Sponsors Grid */}
+          <div className="relative overflow-hidden">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              {[...Array(6)].map((_, index) => {
+                const sponsorIndex = (currentSponsorIndex + index) % SPONSORS.length;
+                const sponsor = SPONSORS[sponsorIndex];
+                return (
+                  <div
+                    key={`${sponsor.id}-${index}`}
+                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+                  >
+                    {sponsor.url ? (
+                      <a
+                        href={sponsor.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full h-full flex items-center justify-center"
+                      >
+                        <img
+                          src={sponsor.logo}
+                          alt={sponsor.name}
+                          className="max-w-[120px] max-h-[80px] object-contain transition-all duration-300 group-hover:scale-110"
+                        />
+                      </a>
+                    ) : (
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className="max-w-[120px] max-h-[80px] object-contain transition-all duration-300 group-hover:scale-110"
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Navigation Dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {SPONSORS.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSponsorIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentSponsorIndex
+                      ? 'bg-blue-600 w-6'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Chuyển đến nhà tài trợ ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-4">
+              Cảm ơn sự tin tưởng và đồng hành của các đối tác
+            </p>
+            <Button
+              variant="outline"
+              size="md"
+              href="/contact"
+              rightIcon="arrow_forward"
+            >
+              Trở Thành Đối Tác
+            </Button>
+          </div>
+        </div>
+      </Section>
 
       {/* Impact Areas - Visual Impact */}
       <Section background="gray" padding="lg">

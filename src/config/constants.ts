@@ -646,3 +646,108 @@ export const PROGRAM_UPDATES = [
     type: 'success',
   },
 ] as const;
+
+export const SPONSORS = [
+  {
+    id: 1,
+    name: 'Deloitte',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2023/03/deloitte.png',
+    url: 'https://www2.deloitte.com/vn/en.html',
+  },
+  {
+    id: 2,
+    name: 'Sacombank',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/scb.png',
+    url: 'https://www.sacombank.com.vn/Pages/default.aspx',
+  },
+  {
+    id: 3,
+    name: 'Kamala',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/kamala.png',
+    url: 'https://kamala.vn/',
+  },
+  {
+    id: 4,
+    name: 'MIA',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/mia.png',
+    url: 'http://mia.com.vn/',
+  },
+  {
+    id: 5,
+    name: 'MSB',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/msb.png',
+    url: 'https://www.msb.com.vn/',
+  },
+  {
+    id: 6,
+    name: 'NTS',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/nts.png',
+    url: 'https://masothue.com/0302204313-cong-ty-tnhh-nts',
+  },
+  {
+    id: 7,
+    name: 'PVI',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/pvi.png',
+    url: 'https://baohiempvi.com/',
+  },
+  {
+    id: 8,
+    name: 'PwC',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/pwc.png',
+    url: 'https://www.pwc.com/',
+  },
+  {
+    id: 9,
+    name: 'THP',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/thp.png',
+    url: 'https://www.thp.com.vn/',
+  },
+  {
+    id: 10,
+    name: 'VVN',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2022/09/vvn.png',
+    url: '',
+  },
+  {
+    id: 11,
+    name: 'Luật Việt',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2023/03/luatviet.png',
+    url: 'https://www.dentonsluatviet.com/',
+  },
+  {
+    id: 12,
+    name: 'Việt Thương',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2023/03/vietthuong.png',
+    url: 'https://vietthuong.vn/',
+  },
+  {
+    id: 13,
+    name: 'Bravo',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2023/03/bravo.png',
+    url: 'https://www.bravo.com.vn/',
+  },
+  {
+    id: 14,
+    name: 'SCB',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2023/03/scb.png',
+    url: 'https://www.scb.com.vn/',
+  },
+  {
+    id: 15,
+    name: 'Trường Hoàng Phát',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2023/03/truong-hoang-phat.png',
+    url: 'https://banghehocsinhgiare.com/',
+  },
+  {
+    id: 16,
+    name: 'Indochine Counsel',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2023/03/indochine.png',
+    url: 'https://www.indochinecounsel.com/',
+  },
+  {
+    id: 17,
+    name: 'Microsoft',
+    logo: 'https://littlerosesfoundation.org/wp-content/uploads/2023/03/Microsoft.png',
+    url: 'https://www.microsoft.com/vi-vn/',
+  },
+] as const;

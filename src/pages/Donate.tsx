@@ -19,6 +19,7 @@ export default function Donate() {
   const [selectedAmount, setSelectedAmount] = useState(500000);
   const [customAmount, setCustomAmount] = useState('');
   const [frequency, setFrequency] = useState<'once' | 'monthly'>('once');
+  const [paymentMethod, setPaymentMethod] = useState<'online' | 'bank'>('online');
   const [donorInfo, setDonorInfo] = useState({
     name: '',
     email: '',
@@ -28,6 +29,7 @@ export default function Donate() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showBankInfo, setShowBankInfo] = useState(false);
 
   useEffect(() => {
     if (programId) {
@@ -39,9 +41,16 @@ export default function Donate() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (paymentMethod === 'bank') {
+      // Show bank transfer information
+      setShowBankInfo(true);
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate API call
+    // Simulate payment gateway redirect
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
@@ -381,6 +390,42 @@ export default function Donate() {
               </div>
             </div>
 
+            {/* Payment Method Selection */}
+            <div className="mb-8">
+              <label className="block text-sm font-semibold text-gray-700 mb-3">
+                <span className="material-icons text-sm align-middle mr-1">payment</span>
+                Phương thức thanh toán
+              </label>
+              <div className="grid grid-cols-2 gap-4">
+                <button
+                  type="button"
+                  onClick={() => setPaymentMethod('online')}
+                  className={`p-4 rounded-xl border-2 font-semibold transition-all ${
+                    paymentMethod === 'online'
+                      ? 'border-green-500 bg-green-50 text-green-700'
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <span className="material-icons mb-1">credit_card</span>
+                  <div>Thanh toán online</div>
+                  <div className="text-xs font-normal mt-1">VNPay, MoMo, thẻ</div>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPaymentMethod('bank')}
+                  className={`p-4 rounded-xl border-2 font-semibold transition-all ${
+                    paymentMethod === 'bank'
+                      ? 'border-green-500 bg-green-50 text-green-700'
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <span className="material-icons mb-1">account_balance</span>
+                  <div>Chuyển khoản</div>
+                  <div className="text-xs font-normal mt-1">Ngân hàng</div>
+                </button>
+              </div>
+            </div>
+
             {/* Summary */}
             <div className="bg-gradient-to-r from-green-50 to-rose-50 p-6 rounded-xl mb-8">
               <div className="flex justify-between items-center mb-2">
@@ -462,14 +507,167 @@ export default function Donate() {
               className="w-full shadow-2xl shadow-green-500/30 font-bold"
               leftIcon="favorite"
             >
-              {isSubmitting ? 'Đang xử lý...' : `💝 Hoàn Tất Đóng Góp ${formatCurrencyFull(selectedAmount || 0)}`}
+              {isSubmitting 
+                ? 'Đang xử lý...' 
+                : paymentMethod === 'online'
+                ? `💳 Thanh Toán Online ${formatCurrencyFull(selectedAmount || 0)}`
+                : `🏦 Xem Thông Tin Chuyển Khoản`
+              }
             </Button>
 
             <p className="text-center text-sm text-gray-500 mt-4">
               🔒 Thông tin của bạn được bảo mật tuyệt đối
             </p>
-              </Card>
-            </form>
+          </Card>
+        </form>
+
+        {/* Bank Transfer Modal/Info */}
+        {showBankInfo && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <Card variant="elevated" padding="xl" className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-900">Thông Tin Chuyển Khoản</h3>
+                <button
+                  onClick={() => setShowBankInfo(false)}
+                  className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center"
+                >
+                  <span className="material-icons text-gray-600">close</span>
+                </button>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl mb-6">
+                <div className="text-center mb-4">
+                  <div className="text-5xl mb-2">💰</div>
+                  <div className="text-3xl font-bold text-green-600">
+                    {formatCurrencyFull(selectedAmount || 0)}
+                  </div>
+                  {frequency === 'monthly' && (
+                    <p className="text-sm text-gray-600 mt-1">Hàng tháng</p>
+                  )}
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                {/* Bank Info */}
+                <div className="bg-white border-2 border-green-500 rounded-xl p-6">
+                  <h4 className="font-bold text-lg text-gray-900 mb-4 flex items-center gap-2">
+                    <span className="material-icons text-green-600">account_balance</span>
+                    Ngân hàng Vietcombank
+                  </h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                      <span className="text-gray-600">Số tài khoản:</span>
+                      <span className="font-mono font-bold text-gray-900">1234567890</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                      <span className="text-gray-600">Chủ tài khoản:</span>
+                      <span className="font-bold text-gray-900">Quỹ Bông Hồng Nhỏ</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                      <span className="text-gray-600">Chi nhánh:</span>
+                      <span className="font-bold text-gray-900">Hà Nội</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Transfer Content */}
+                <div className="bg-blue-50 border-2 border-blue-300 rounded-xl p-6">
+                  <h4 className="font-bold text-lg text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="material-icons text-blue-600">edit_note</span>
+                    Nội dung chuyển khoản
+                  </h4>
+                  <div className="bg-white p-4 rounded-lg border-2 border-dashed border-blue-300">
+                    <code className="text-blue-600 font-mono text-lg font-bold">
+                      UH {donorInfo.name || '[Họ tên]'} {donorInfo.phone || '[SĐT]'}
+                    </code>
+                  </div>
+                  <p className="text-sm text-gray-600 mt-3">
+                    ⚠️ Vui lòng ghi chính xác nội dung để chúng tôi có thể xác nhận và gửi giấy chứng nhận cho bạn
+                  </p>
+                </div>
+
+                {/* Selected Program Info */}
+                {donorInfo.programId && (
+                  <div className="bg-rose-50 border-2 border-rose-300 rounded-xl p-6">
+                    <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="material-icons text-rose-600">favorite</span>
+                      Dự án được ủng hộ
+                    </h4>
+                    <p className="text-gray-700">
+                      {PROGRAMS.find(p => p.id === Number(donorInfo.programId))?.title || 'Ủng hộ chung'}
+                    </p>
+                  </div>
+                )}
+
+                {/* Instructions */}
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <h4 className="font-bold text-gray-900 mb-3">📋 Hướng dẫn chuyển khoản:</h4>
+                  <ol className="space-y-2 text-sm text-gray-700">
+                    <li className="flex gap-2">
+                      <span className="font-bold text-green-600">1.</span>
+                      <span>Mở ứng dụng ngân hàng của bạn</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-green-600">2.</span>
+                      <span>Chọn chuyển khoản đến Vietcombank</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-green-600">3.</span>
+                      <span>Nhập số tài khoản: <strong>1234567890</strong></span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-green-600">4.</span>
+                      <span>Nhập số tiền: <strong>{formatCurrencyFull(selectedAmount || 0)}</strong></span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-green-600">5.</span>
+                      <span>Ghi nội dung: <strong>UH {donorInfo.name || '[Họ tên]'} {donorInfo.phone || '[SĐT]'}</strong></span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-green-600">6.</span>
+                      <span>Xác nhận và hoàn tất chuyển khoản</span>
+                    </li>
+                  </ol>
+                </div>
+
+                {/* Contact Info */}
+                <div className="text-center text-sm text-gray-600">
+                  <p className="mb-2">Sau khi chuyển khoản thành công, chúng tôi sẽ gửi email xác nhận và giấy chứng nhận trong vòng 24h.</p>
+                  <p>Nếu cần hỗ trợ, vui lòng liên hệ: <strong className="text-green-600">info@littlerosesfoundation.org</strong></p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 mt-6">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setShowBankInfo(false)}
+                  className="flex-1"
+                >
+                  Đóng
+                </Button>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => {
+                    setShowBankInfo(false);
+                    setShowSuccess(true);
+                    setTimeout(() => {
+                      setShowSuccess(false);
+                      setDonorInfo({ name: '', email: '', phone: '', message: '', programId: programId || '' });
+                      setSelectedAmount(500000);
+                      setCustomAmount('');
+                    }, 5000);
+                  }}
+                  className="flex-1"
+                  leftIcon="check_circle"
+                >
+                  Đã Chuyển Khoản
+                </Button>
+              </div>
+            </Card>
+          </div>
+        )}
             </div>
           )}
         </div>
