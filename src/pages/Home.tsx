@@ -26,7 +26,7 @@ export default function Home() {
         }
         subtitle="🌟 Chương Trình Nổi Bật"
         description="Chúng tôi cam kết hỗ trợ giáo dục và y tế để mọi trẻ em đều có cơ hội phát triển toàn diện, bất kể hoàn cảnh xuất thân."
-        image="https://lh3.googleusercontent.com/aida-public/AB6AXuAQxA8FNzaSwZkYh10Iy3VnOG3rIkb3ekdWfT5Akyvcg28V_TidiTTrQLtn29NaUbSDSeVx229pEvIScGSdajSa-QWvtX9Ty8t0IxTI10v8o6abB_Ecjrs0p1f0t1ZjvTeSOh6LsxiDlyskHOWuZ9PVYpTJnGw0EkkhYs9aSFCEU5DdMBS50NBLgoNnOp1N1ksVgtGWcP8-GCtdEiKvVGtXWuOa2btefWzE7yuXCmkb1j5_T5v0g6JUyH70-8X_KoizybhmUZ8ov1I"
+        image="/images/9.jpg"
         overlay="gradient"
         height="xl"
         actions={

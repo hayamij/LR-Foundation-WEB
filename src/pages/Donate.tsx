@@ -182,29 +182,6 @@ export default function Donate() {
         </div>
       </Section>
 
-      {/* Emotional Hook */}
-      <Section background="gradient" padding="lg">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Mỗi Đóng Góp Đều Có Ý Nghĩa
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6 text-left">
-            <Card variant="elevated" padding="md">
-              <h3 className="font-bold text-gray-900 mb-2">100.000 VNĐ</h3>
-              <p className="text-sm text-gray-600">= 10 quyển vở cho học sinh nghèo</p>
-            </Card>
-            <Card variant="elevated" padding="md">
-              <h3 className="font-bold text-gray-900 mb-2">500.000 VNĐ</h3>
-              <p className="text-sm text-gray-600">= Bữa ăn dinh dưỡng cho 50 em trong 1 ngày</p>
-            </Card>
-            <Card variant="elevated" padding="md">
-              <h3 className="font-bold text-gray-900 mb-2">1.000.000 VNĐ</h3>
-              <p className="text-sm text-gray-600">= Học bổng 1 tháng cho 1 em học sinh</p>
-            </Card>
-          </div>
-        </div>
-      </Section>
-
       {/* Donation Form */}
       <Section background="white" padding="xl">
         <div className={selectedProgram ? "max-w-7xl mx-auto" : "max-w-4xl mx-auto"}>
@@ -464,38 +441,6 @@ export default function Donate() {
             </form>
             </div>
           )}
-        </div>
-      </Section>
-
-      {/* Gratitude Section */}
-      <Section background="gradient" padding="xl">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="text-7xl mb-6">🙏</div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Từ Đáy Lòng, <span className="text-rose-600">Xin Cảm Ơn!</span>
-          </h2>
-          <p className="text-xl text-gray-700 leading-relaxed mb-8">
-            Mỗi đóng góp của bạn không chỉ là tiền bạc, mà là tình yêu thương, là niềm tin, 
-            là hy vọng cho những trái tim nhỏ bé. Bạn đang tạo nên những kỳ tích mỗi ngày.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <div className="text-4xl mb-3">💌</div>
-              <h3 className="font-bold text-gray-900 mb-2">Email Cảm Ơn</h3>
-              <p className="text-sm text-gray-600">Gửi ngay sau khi đóng góp</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <div className="text-4xl mb-3">📜</div>
-              <h3 className="font-bold text-gray-900 mb-2">Giấy Chứng Nhận</h3>
-              <p className="text-sm text-gray-600">Chứng nhận đóng góp chính thức</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <div className="text-4xl mb-3">📊</div>
-              <h3 className="font-bold text-gray-900 mb-2">Báo Cáo Tác Động</h3>
-              <p className="text-sm text-gray-600">Cập nhật định kỳ hàng quý</p>
-            </div>
-          </div>
         </div>
       </Section>
 
