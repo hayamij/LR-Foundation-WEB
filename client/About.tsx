@@ -1,1 +1,0 @@
-﻿export default function About() { return (<div className="min-h-screen"><div className="container mx-auto px-4 py-16"><h1 className="text-4xl font-bold mb-8">Giới Thiệu</h1><p className="text-lg">Đây là trang giới thiệu - Đang được khôi phục...</p></div></div>); }
