@@ -43,5 +43,6 @@ coverage/
 *.swo
 
 # # Materials (development docs)
-# materials/
+materials/
+client/
 # package-lock.json
