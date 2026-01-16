@@ -172,11 +172,10 @@ export default function Donate() {
           </div>
 
           <div className="text-center bg-rose-50 p-8 rounded-2xl border-2 border-rose-200">
-            <div className="text-5xl mb-4">🙏</div>
             <h3 className="text-2xl font-bold text-gray-900 mb-3">
               Trái Tim Bạn Ở Đâu, Kho Báu Của Bạn Cũng Ở Đó
             </h3>
-            <p className="text-lg text-gray-700 mb-6">
+            <p className="text-lg text-gray-700">
               Không có đóng góp nào là nhỏ. Mỗi đồng tiền đều mang theo tình yêu thương và hy vọng.
             </p>
           </div>
@@ -186,23 +185,19 @@ export default function Donate() {
       {/* Emotional Hook */}
       <Section background="gradient" padding="lg">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="text-6xl mb-6">💝</div>
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Mỗi Đóng Góp Đều Có Ý Nghĩa
           </h2>
           <div className="grid md:grid-cols-3 gap-6 text-left">
             <Card variant="elevated" padding="md">
-              <div className="text-3xl mb-2">📚</div>
               <h3 className="font-bold text-gray-900 mb-2">100.000 VNĐ</h3>
               <p className="text-sm text-gray-600">= 10 quyển vở cho học sinh nghèo</p>
             </Card>
             <Card variant="elevated" padding="md">
-              <div className="text-3xl mb-2">🍚</div>
               <h3 className="font-bold text-gray-900 mb-2">500.000 VNĐ</h3>
               <p className="text-sm text-gray-600">= Bữa ăn dinh dưỡng cho 50 em trong 1 ngày</p>
             </Card>
             <Card variant="elevated" padding="md">
-              <div className="text-3xl mb-2">❤️</div>
               <h3 className="font-bold text-gray-900 mb-2">1.000.000 VNĐ</h3>
               <p className="text-sm text-gray-600">= Học bổng 1 tháng cho 1 em học sinh</p>
             </Card>

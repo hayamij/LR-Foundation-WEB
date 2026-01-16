@@ -5,10 +5,10 @@
 
 export const SITE_CONFIG = {
   name: 'Quỹ Bông Hồng Nhỏ',
-  nameEn: 'Little Rose Foundation',
+  nameEn: 'Little Roses Foundation',
   shortName: 'LRF',
   tagline: 'Kết Nối Yêu Thương, Lan Tỏa Nhân Ái',
-  mission: 'Trao cần câu hơn trao con cá',
+  mission: 'Nền văn minh tình thương',
   
   contact: {
     email: 'info@littlerosesfoundation.org',
@@ -24,9 +24,9 @@ export const SITE_CONFIG = {
   },
   
   stats: {
-    yearsActive: 10,
+    yearsActive: 3,
     childrenHelped: 5000,
-    totalDonations: '25+ Tỷ',
+    totalDonations: '73+ Tỷ',
     volunteers: 100,
     projects: 50,
   },
@@ -307,29 +307,29 @@ export const NEWS = [
 
 export const TIMELINE = [
   {
-    year: '2018',
-    title: 'Thành lập Quỹ',
-    description: 'Quỹ Bông Hồng Nhỏ chính thức được thành lập với sứ mệnh hỗ trợ trẻ em nghèo.',
+    year: '01/11/2021',
+    title: 'Thành lập chính thức',
+    description: 'Little Roses Foundation (LRF) được thành lập theo Quyết định số 1151/QĐ-BNV, lấy cảm hứng từ truyền thống gia đình và tâm huyết thiện nguyện của Tập đoàn giáo dục Nguyễn Hoàng (NHG).',
   },
   {
-    year: '2019',
-    title: 'Dự án đầu tiên',
-    description: 'Xây dựng trường học đầu tiên tại Sapa, mang giáo dục đến vùng cao.',
+    year: '22/04/2022',
+    title: 'Cấp phép hoạt động toàn quốc',
+    description: 'Bộ Nội Vụ chính thức cấp phép cho LRF hoạt động phi lợi nhuận trên phạm vi toàn quốc với mục tiêu chăm lo sức khỏe, giáo dục và hỗ trợ người có hoàn cảnh khó khăn.',
   },
   {
-    year: '2020',
-    title: 'Mở rộng hoạt động',
-    description: 'Triển khai chương trình y tế và hỗ trợ phẫu thuật tim cho trẻ em.',
+    year: '01/10/2022',
+    title: 'Ra mắt công chúng',
+    description: 'LRF chính thức ra mắt công chúng với sự kiện đấu giá gây quỹ và cam kết 73 tỷ đồng cho năm đầu tiên, khởi đầu hành trình "Nền văn minh tình thương".',
   },
   {
-    year: '2021',
-    title: 'Cứu trợ Covid-19',
-    description: 'Hỗ trợ 10,000 gia đình khó khăn trong đại dịch với lương thực và y tế.',
+    year: '2023-2024',
+    title: 'Xây dựng "Nhà Yêu Thương"',
+    description: 'Triển khai các chương trình giúp đỡ người nghèo vượt nghịch cảnh, tạo cơ hội phát triển và xây dựng "Nhà Yêu Thương" trên khắp cả nước.',
   },
   {
-    year: '2022-2024',
-    title: 'Phát triển bền vững',
-    description: 'Đạt 5,000+ trẻ em được hỗ trợ và 25+ tỷ đồng quyên góp.',
+    year: '2025',
+    title: 'Tiếp tục phát triển',
+    description: 'Mở rộng hoạt động với tôn chỉ "Nền văn minh tình thương", lan tỏa yêu thương và giá trị nhân bản đến cộng đồng.',
   },
 ] as const;
 
