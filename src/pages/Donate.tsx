@@ -277,6 +277,34 @@ export default function Donate() {
                   {selectedProgram ? `Ủng Hộ "${selectedProgram.title}"` : 'Chọn Số Tiền Ủng Hộ'}
                 </h2>
 
+            {/* Program Selection (only when no program is pre-selected) */}
+            {!selectedProgram && (
+              <div className="mb-8">
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  <span className="material-icons text-sm align-middle mr-1">category</span>
+                  Chọn dự án bạn muốn ủng hộ (tuỳ chọn)
+                </label>
+                <select
+                  value={donorInfo.programId}
+                  onChange={(e) => setDonorInfo({...donorInfo, programId: e.target.value})}
+                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none transition-all bg-white"
+                >
+                  <option value="">Ủng hộ chung (Tất cả dự án)</option>
+                  {PROGRAMS.map((program) => (
+                    <option key={program.id} value={program.id}>
+                      {program.title} - {program.category} ({program.progress}% hoàn thành)
+                    </option>
+                  ))}
+                </select>
+                {donorInfo.programId && (
+                  <p className="mt-2 text-sm text-gray-600 flex items-center gap-1">
+                    <span className="material-icons text-xs text-green-600">check_circle</span>
+                    Đã chọn: <strong>{PROGRAMS.find(p => p.id === Number(donorInfo.programId))?.title}</strong>
+                  </p>
+                )}
+              </div>
+            )}
+
             {/* Frequency */}
             <div className="mb-8">
               <label className="block text-sm font-semibold text-gray-700 mb-3">
@@ -284,6 +312,7 @@ export default function Donate() {
               </label>
               <div className="grid grid-cols-2 gap-4">
                 <button
+                  type="button"
                   onClick={() => setFrequency('once')}
                   className={`p-4 rounded-xl border-2 font-semibold transition-all ${
                     frequency === 'once'
@@ -295,6 +324,7 @@ export default function Donate() {
                   <div>Một lần</div>
                 </button>
                 <button
+                  type="button"
                   onClick={() => setFrequency('monthly')}
                   className={`p-4 rounded-xl border-2 font-semibold transition-all ${
                     frequency === 'monthly'
@@ -317,6 +347,7 @@ export default function Donate() {
                 {predefinedAmounts.map((amount) => (
                   <button
                     key={amount}
+                    type="button"
                     onClick={() => {
                       setSelectedAmount(amount);
                       setCustomAmount('');

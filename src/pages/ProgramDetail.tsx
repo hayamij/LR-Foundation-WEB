@@ -136,6 +136,69 @@ export default function ProgramDetail() {
                 </Card>
               </div>
 
+              {/* Budget Breakdown */}
+              {'budgetBreakdown' in program && program.budgetBreakdown && (
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Phân Bổ Ngân Sách</h2>
+                  <Card variant="elevated" padding="lg">
+                    <div className="mb-6">
+                      <p className="text-gray-700 leading-relaxed">
+                        Chúng tôi cam kết minh bạch 100% về việc sử dụng nguồn quỹ. 
+                        Dưới đây là chi tiết phân bổ ngân sách cho dự án này:
+                      </p>
+                    </div>
+
+                    <div className="space-y-4">
+                      {program.budgetBreakdown.map((item, index) => (
+                        <div key={index} className="border-l-4 border-green-500 bg-gray-50 p-4 rounded-r-xl">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-semibold text-gray-900 flex-1">{item.item}</h4>
+                            <span className="text-green-600 font-bold ml-4">
+                              {item.percentage}%
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="w-full bg-gray-200 rounded-full h-2">
+                              <div
+                                className="h-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"
+                                style={{ width: `${item.percentage}%` }}
+                              />
+                            </div>
+                            <span className="text-sm font-bold text-gray-700 whitespace-nowrap">
+                              {(item.amount / 1000000).toFixed(1)}M đ
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-6 pt-6 border-t border-gray-200">
+                      <div className="flex justify-between items-center text-lg font-bold">
+                        <span className="text-gray-900">Tổng ngân sách:</span>
+                        <span className="text-green-600">
+                          {(program.target / 1000000).toFixed(0)} triệu đồng
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm text-gray-600 mt-2">
+                        <span>Đã quyên góp:</span>
+                        <span className="font-semibold text-blue-600">
+                          {(program.raised / 1000000).toFixed(1)} triệu đồng ({program.progress}%)
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 p-4 bg-green-50 rounded-xl border border-green-200">
+                      <div className="flex items-start gap-2">
+                        <span className="material-icons text-green-600">verified</span>
+                        <p className="text-sm text-green-900">
+                          <strong>Cam kết minh bạch:</strong> Mọi khoản chi sẽ được báo cáo công khai và có chứng từ đầy đủ.
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              )}
+
               {/* Updates Timeline */}
               {updates.length > 0 && (
                 <div>

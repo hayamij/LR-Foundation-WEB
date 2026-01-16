@@ -4,54 +4,160 @@
  * Flow: Hero → Impact → Story → Programs → Stats → News → CTA
  */
 
-import Hero from '../components/ui/Hero';
+import { useState, useEffect } from 'react';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
-import { ImpactCard, ProgramCard, StatItem, NewsCard, DonorTicker, TopDonors, DonorTestimonials } from '../components/features';
+import { ImpactCard, ProgramCard, StatItem, NewsCard, /*DonorTicker,*/ TopDonors, DonorTestimonials } from '../components/features';
 import { SITE_CONFIG, IMPACT_AREAS, PROGRAMS, NEWS } from '../config/constants';
 
 export default function Home() {
   const featuredPrograms = PROGRAMS.filter(p => p.urgent || p.progress >= 80).slice(0, 3);
   const latestNews = NEWS.slice(0, 3);
 
+  // Auto-sliding images for Story section
+  const storyImages = [
+    '/images/1.jpg',
+    '/images/2.jpg',
+    '/images/3.jpg',
+    '/images/4.jpg',
+    '/images/5.jpg',
+    '/images/6.jpg',
+    '/images/7.jpg',
+    '/images/8.jpg',
+  ];
+
+  // Auto-sliding images for Hero section
+  const heroImages = [
+    '/images/9.jpg',
+    '/images/5.jpg',
+    // '/images/6.jpg',
+    // '/images/7.jpg',
+    // '/images/8.jpg',
+    // '/images/10.jpg',
+    // '/images/11.jpg',
+    // '/images/12.jpg',
+    // '/images/13.jpg',
+    '/images/14.jpg',
+  ];
+
+  const [currentStoryImageIndex, setCurrentStoryImageIndex] = useState(0);
+  const [currentHeroImageIndex, setCurrentHeroImageIndex] = useState(0);
+
+  useEffect(() => {
+    const storyInterval = setInterval(() => {
+      setCurrentStoryImageIndex((prev) => (prev + 1) % storyImages.length);
+    }, 5000);
+
+    const heroInterval = setInterval(() => {
+      setCurrentHeroImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+
+    return () => {
+      clearInterval(storyInterval);
+      clearInterval(heroInterval);
+    };
+  }, [storyImages.length, heroImages.length]);
+
   return (
     <>
-      {/* Hero Section - Emotional Hook */}
-      <Hero
-        title={
-          <>
-            Mang Nụ Cười Đến Cho <br />
-            <span className="text-green-400">Trẻ Em Vùng Cao</span>
-          </>
-        }
-        subtitle="🌟 Chương Trình Nổi Bật"
-        description="Chúng tôi cam kết hỗ trợ giáo dục và y tế để mọi trẻ em đều có cơ hội phát triển toàn diện, bất kể hoàn cảnh xuất thân."
-        image="/images/9.jpg"
-        overlay="gradient"
-        height="xl"
-        actions={
-          <>
-            <Button
-              variant="primary"
-              size="lg"
-              href="/about"
-              rightIcon="arrow_forward"
-              className="shadow-2xl"
+      {/* Hero Section - Emotional Hook with Slideshow */}
+      <section className="relative w-full overflow-hidden h-[700px]">
+        {/* Background Slideshow */}
+        <div className="absolute inset-0">
+          {heroImages.map((img, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentHeroImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
             >
-              Tìm Hiểu Thêm
-            </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              href="/donate"
-              leftIcon="volunteer_activism"
-              className="shadow-2xl shadow-rose-500/30"
-            >
-              Ủng Hộ Dự Án
-            </Button>
-          </>
-        }
-      />
+              <img
+                src={img}
+                alt={`Hero ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-800/70 to-transparent" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative h-full flex items-center">
+          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+            <div className="max-w-3xl">
+              {/* Subtitle */}
+              <div className="inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-sm border border-green-400/30 text-white px-4 py-2 rounded-full mb-6 font-semibold">
+                <span>🌟 Chương Trình Nổi Bật</span>
+              </div>
+
+              {/* Title */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Mang Nụ Cười Đến Cho <br />
+                <span className="text-green-400">Trẻ Em Vùng Cao</span>
+              </h1>
+
+              {/* Description */}
+              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                Chúng tôi cam kết hỗ trợ giáo dục và y tế để mọi trẻ em đều có cơ hội phát triển toàn diện, bất kể hoàn cảnh xuất thân.
+              </p>
+
+              {/* Actions */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  href="/about"
+                  rightIcon="arrow_forward"
+                  className="shadow-2xl"
+                >
+                  Tìm Hiểu Thêm
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  href="/donate"
+                  leftIcon="volunteer_activism"
+                  className="shadow-2xl shadow-rose-500/30"
+                >
+                  Ủng Hộ Dự Án
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentHeroImageIndex(index)}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${
+                index === currentHeroImageIndex
+                  ? 'bg-white w-8'
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Chuyển đến slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={() => setCurrentHeroImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)}
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 flex items-center justify-center transition-all z-10"
+          aria-label="Slide trước"
+        >
+          <span className="material-icons text-white text-2xl">chevron_left</span>
+        </button>
+        <button
+          onClick={() => setCurrentHeroImageIndex((prev) => (prev + 1) % heroImages.length)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 flex items-center justify-center transition-all z-10"
+          aria-label="Slide tiếp theo"
+        >
+          <span className="material-icons text-white text-2xl">chevron_right</span>
+        </button>
+      </section>
 
       {/* Impact Areas - Visual Impact */}
       <Section background="gray" padding="lg">
@@ -69,52 +175,40 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {IMPACT_AREAS.map((impact) => (
-            <ImpactCard key={impact.id} impact={impact} />
+          {IMPACT_AREAS.map((area) => (
+            <ImpactCard key={area.id} impact={area} />
           ))}
         </div>
       </Section>
 
-      {/* Story Section - Building Trust */}
+      {/* Story Section - Emotional Connection */}
       <Section background="white" padding="xl">
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-          {/* Text Content */}
-          <div>
-            <div className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 px-4 py-2 rounded-full mb-6 font-semibold">
-              <span className="material-icons">info</span>
-              <span>Về Chúng Tôi</span>
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          {/* Content */}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">
+              <span className="material-icons">favorite</span>
+              <span>Câu Chuyện Của Chúng Tôi</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Kết Nối Yêu Thương, <br />
-              <span className="text-green-600">Lan Tỏa Nhân Ái</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Mỗi Đóng Góp Là Một <span className="text-green-600">Nụ Cười</span>
             </h2>
 
-            <div className="space-y-4 text-lg text-gray-700 leading-relaxed mb-8">
-              <p>
-                <strong>Quỹ Bông Hồng Nhỏ</strong> là tổ chức phi lợi nhuận được thành lập với sứ mệnh 
-                mang lại cuộc sống tốt đẹp hơn cho trẻ em nghèo vùng cao. Chúng tôi tin rằng mỗi sự 
-                đóng góp nhỏ đều có thể tạo nên những thay đổi lớn lao.
-              </p>
-              <p>
-                Với phương châm <strong className="text-green-600">"{SITE_CONFIG.mission}"</strong>, 
-                chúng tôi tập trung vào các dự án phát triển bền vững, giúp cộng đồng yếu thế tự vươn lên.
-              </p>
-            </div>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Little Roses Foundation (LRF) được thành lập với mục tiêu mang lại hy vọng và 
+              cơ hội cho những trẻ em nghèo ở vùng cao. Chúng tôi tin rằng mỗi đứa trẻ đều 
+              xứng đáng có một tương lai tươi sáng.
+            </p>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-6 mb-10">
-              <div className="p-6 bg-green-50 rounded-2xl border-l-4 border-green-500">
-                <div className="text-4xl font-extrabold text-green-600 mb-1">
-                  {SITE_CONFIG.stats.yearsActive}+
-                </div>
-                <div className="text-sm text-gray-700 font-medium">Năm hoạt động</div>
-              </div>
-              <div className="p-6 bg-rose-50 rounded-2xl border-l-4 border-rose-500">
-                <div className="text-4xl font-extrabold text-rose-600 mb-1">
-                  {SITE_CONFIG.stats.childrenHelped / 1000}K+
-                </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border border-green-100">
+                <div className="text-4xl font-bold text-green-600 mb-2">{SITE_CONFIG.stats.childrenHelped}+</div>
                 <div className="text-sm text-gray-700 font-medium">Trẻ em được hỗ trợ</div>
+              </div>
+              <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-6 rounded-2xl border border-rose-100">
+                <div className="text-4xl font-bold text-rose-600 mb-2">{SITE_CONFIG.stats.projects}+</div>
+                <div className="text-sm text-gray-700 font-medium">Dự án hoàn thành</div>
               </div>
             </div>
 
@@ -128,33 +222,58 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* Image Grid */}
+          {/* Image Slideshow */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGrd_kSrdakYaUpP_lcnQFab6YpC7UnfLb0JR--FtwqKwDjhsfRs-GOIYwSHNjg71Qh8S1ed1ptZw4QqMN5qNn857DQKNkL5WofLIb5z07TP2eZXAt7NYqcV4Zond6SGQzr1Az8bIQ8PM3UFlFuOhd1-kMeB4n5WY0uizwICH_zueAUGj_EnS2dvqE9wEtTx5vfkVvjz5PindcukzUTkC69robvfRPx-r0vC5LUYFak5CdCQla00HwRUFUYxJ_SHXINcw40XYb_Zg"
-                  alt="Trẻ em vùng cao"
-                  className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600"
-                  alt="Hoạt động từ thiện"
-                  className="w-full h-48 object-cover rounded-2xl shadow-lg"
-                />
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl h-[500px]">
+              {storyImages.map((img, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === currentStoryImageIndex
+                      ? 'opacity-100 scale-100'
+                      : 'opacity-0 scale-105'
+                  }`}
+                >
+                  <img
+                    src={img}
+                    alt={`Hoạt động từ thiện ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+              ))}
+
+              {/* Navigation Dots */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {storyImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentStoryImageIndex(index)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all ${
+                      index === currentStoryImageIndex
+                        ? 'bg-white w-8'
+                        : 'bg-white/50 hover:bg-white/75'
+                    }`}
+                    aria-label={`Chuyển đến ảnh ${index + 1}`}
+                  />
+                ))}
               </div>
-              <div className="space-y-4 pt-8">
-                <img
-                  src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600"
-                  alt="Trường học"
-                  className="w-full h-48 object-cover rounded-2xl shadow-lg"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600"
-                  alt="Học sinh"
-                  className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                />
-              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={() => setCurrentStoryImageIndex((prev) => (prev - 1 + storyImages.length) % storyImages.length)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white flex items-center justify-center transition-all shadow-lg z-10"
+                aria-label="Ảnh trước"
+              >
+                <span className="material-icons text-gray-800">chevron_left</span>
+              </button>
+              <button
+                onClick={() => setCurrentStoryImageIndex((prev) => (prev + 1) % storyImages.length)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white flex items-center justify-center transition-all shadow-lg z-10"
+                aria-label="Ảnh tiếp theo"
+              >
+                <span className="material-icons text-gray-800">chevron_right</span>
+              </button>
             </div>
 
             {/* Floating Stats Card */}
@@ -243,7 +362,7 @@ export default function Home() {
       </Section>
 
       {/* Live Donor Ticker */}
-      <DonorTicker />
+      {/* <DonorTicker /> */}
 
       {/* Top Donors Wall */}
       <TopDonors />

@@ -118,6 +118,14 @@ export const PROGRAMS = [
     description: 'Xây dựng trường học kiên cố cho 500 học sinh vùng cao tại Hà Giang',
     impact: '500 học sinh có phòng học mới',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Xây dựng 6 phòng học kiên cố', amount: 240000000, percentage: 48 },
+      { item: 'Bàn ghế học sinh và thiết bị giảng dạy', amount: 80000000, percentage: 16 },
+      { item: 'Nhà vệ sinh và khu vui chơi', amount: 60000000, percentage: 12 },
+      { item: 'Hệ thống điện và chiếu sáng', amount: 40000000, percentage: 8 },
+      { item: 'Sân chơi và hàng rào an toàn', amount: 50000000, percentage: 10 },
+      { item: 'Chi phí giám sát và vận hành', amount: 30000000, percentage: 6 },
+    ],
   },
   {
     id: 2,
@@ -132,6 +140,14 @@ export const PROGRAMS = [
     description: 'Hỗ trợ phẫu thuật tim cho trẻ em nghèo bị bệnh tim bẩm sinh',
     impact: '50 ca phẫu thuật cứu sống trẻ em',
     urgent: true,
+    budgetBreakdown: [
+      { item: 'Chi phí phẫu thuật (50 ca x 15 triệu)', amount: 750000000, percentage: 75 },
+      { item: 'Thuốc men và vật tư y tế', amount: 120000000, percentage: 12 },
+      { item: 'Xét nghiệm và chẩn đoán trước mổ', amount: 50000000, percentage: 5 },
+      { item: 'Chăm sóc sau phẫu thuật', amount: 40000000, percentage: 4 },
+      { item: 'Hỗ trợ đi lại và ăn ở cho gia đình', amount: 30000000, percentage: 3 },
+      { item: 'Quản lý dự án', amount: 10000000, percentage: 1 },
+    ],
   },
   {
     id: 3,
@@ -146,6 +162,14 @@ export const PROGRAMS = [
     description: 'Trao học bổng toàn phần cho 100 học sinh nghèo vượt khó xuất sắc',
     impact: '100 em tiếp tục ước mơ học hành',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Học phí toàn phần (100 em x 2 triệu/năm)', amount: 200000000, percentage: 67 },
+      { item: 'Sách vở và dụng cụ học tập', amount: 40000000, percentage: 13 },
+      { item: 'Đồng phục và giày dép', amount: 25000000, percentage: 8 },
+      { item: 'Hỗ trợ ăn trưa tại trường', amount: 20000000, percentage: 7 },
+      { item: 'Lớp học kỹ năng mềm và hướng nghiệp', amount: 10000000, percentage: 3 },
+      { item: 'Giám sát và đánh giá học tập', amount: 5000000, percentage: 2 },
+    ],
   },
   {
     id: 4,
@@ -160,6 +184,14 @@ export const PROGRAMS = [
     description: 'Hỗ trợ khẩn cấp lương thực và nhu yếu phẩm cho vùng lũ lụt miền Trung',
     impact: '1,000 gia đình được hỗ trợ khẩn cấp',
     urgent: true,
+    budgetBreakdown: [
+      { item: 'Gạo và lương thực khô (1,000 phần x 1.2 triệu)', amount: 120000000, percentage: 60 },
+      { item: 'Nước uống sạch và thuốc sát trùng', amount: 20000000, percentage: 10 },
+      { item: 'Quần áo, chăn màn và nồi nấu', amount: 30000000, percentage: 15 },
+      { item: 'Thuốc men và vật tư y tế cơ bản', amount: 15000000, percentage: 7.5 },
+      { item: 'Vận chuyển khẩn cấp đến vùng lũ', amount: 10000000, percentage: 5 },
+      { item: 'Phối hợp và triển khai', amount: 5000000, percentage: 2.5 },
+    ],
   },
   {
     id: 5,
@@ -174,6 +206,14 @@ export const PROGRAMS = [
     description: 'Cung cấp sữa và thực phẩm dinh dưỡng cho trẻ em suy dinh dưỡng',
     impact: '300 trẻ được cải thiện sức khỏe',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Sữa dinh dưỡng (300 em x 6 tháng)', amount: 90000000, percentage: 60 },
+      { item: 'Thực phẩm bổ sung (trứng, thịt, rau)', amount: 30000000, percentage: 20 },
+      { item: 'Vitamin và khoáng chất', amount: 12000000, percentage: 8 },
+      { item: 'Khám sức khỏe định kỳ', amount: 10000000, percentage: 6.5 },
+      { item: 'Tập huấn dinh dưỡng cho cha mẹ', amount: 5000000, percentage: 3.5 },
+      { item: 'Giám sát chỉ số phát triển', amount: 3000000, percentage: 2 },
+    ],
   },
   {
     id: 6,
@@ -188,6 +228,14 @@ export const PROGRAMS = [
     description: 'Tặng quà Tết ý nghĩa cho người nghèo và trẻ em mồ côi',
     impact: '2,000 phần quà Tết ấm áp',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Gạo, dầu, đường (2,000 phần x 150k)', amount: 300000000, percentage: 75 },
+      { item: 'Quần áo mới cho trẻ em', amount: 40000000, percentage: 10 },
+      { item: 'Bánh kẹo và mứt Tết', amount: 30000000, percentage: 7.5 },
+      { item: 'Tiền lì xì cho trẻ', amount: 20000000, percentage: 5 },
+      { item: 'Vận chuyển và phân phối', amount: 7000000, percentage: 1.75 },
+      { item: 'Tổ chức chương trình Tết', amount: 3000000, percentage: 0.75 },
+    ],
   },
   {
     id: 7,
@@ -202,6 +250,14 @@ export const PROGRAMS = [
     description: 'Xây nhà tình thương cho 20 hộ gia đình nghèo không có nhà ở',
     impact: '20 gia đình có mái ấm mới',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Xây dựng 20 căn nhà cấp 4 kiên cố (20 x 20 triệu)', amount: 400000000, percentage: 80 },
+      { item: 'Vật tư nội thất cơ bản (giường, tủ, bàn)', amount: 40000000, percentage: 8 },
+      { item: 'Hệ thống điện và nước sinh hoạt', amount: 30000000, percentage: 6 },
+      { item: 'Nhà vệ sinh trong nhà', amount: 20000000, percentage: 4 },
+      { item: 'Giấy tờ pháp lý và quyền sử dụng đất', amount: 7000000, percentage: 1.4 },
+      { item: 'Giám sát và bảo hành', amount: 3000000, percentage: 0.6 },
+    ],
   },
   {
     id: 8,
@@ -216,6 +272,14 @@ export const PROGRAMS = [
     description: 'Xe thư viện di động mang sách đến các vùng sâu vùng xa',
     impact: '50 trường học được phục vụ',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Mua và cải tạo xe tải thành thư viện', amount: 120000000, percentage: 60 },
+      { item: 'Mua sách và tài liệu học tập (3,000 đầu sách)', amount: 40000000, percentage: 20 },
+      { item: 'Kệ sách và trang bị nội thất xe', amount: 20000000, percentage: 10 },
+      { item: 'Nhiên liệu và bảo dưỡng (1 năm)', amount: 12000000, percentage: 6 },
+      { item: 'Lương thủ thư và tài xế (1 năm)', amount: 6000000, percentage: 3 },
+      { item: 'Bảo hiểm và giấy phép hoạt động', amount: 2000000, percentage: 1 },
+    ],
   },
   {
     id: 9,
@@ -230,6 +294,14 @@ export const PROGRAMS = [
     description: 'Xây dựng hệ thống nước sạch cho các trường học vùng cao',
     impact: '800 học sinh có nước sạch',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Giếng khoan và hệ thống bơm nước (5 trường)', amount: 150000000, percentage: 60 },
+      { item: 'Bể chứa và đường ống dẫn nước', amount: 50000000, percentage: 20 },
+      { item: 'Hệ thống lọc và khử trùng', amount: 25000000, percentage: 10 },
+      { item: 'Xây nhà vệ sinh và lavabo rửa tay', amount: 15000000, percentage: 6 },
+      { item: 'Đào tạo sử dụng và bảo dưỡng', amount: 7000000, percentage: 2.8 },
+      { item: 'Kiểm tra chất lượng nước định kỳ (1 năm)', amount: 3000000, percentage: 1.2 },
+    ],
   },
   {
     id: 10,
@@ -244,6 +316,14 @@ export const PROGRAMS = [
     description: 'Phẫu thuật mắt miễn phí cho người già nghèo bị đục thủy tinh thể',
     impact: '150 ca phẫu thuật thành công',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Chi phí phẫu thuật (150 ca x 1.5 triệu)', amount: 225000000, percentage: 75 },
+      { item: 'Kính mắt và thuốc sau mổ', amount: 30000000, percentage: 10 },
+      { item: 'Xét nghiệm và chẩn đoán trước mổ', amount: 20000000, percentage: 6.5 },
+      { item: 'Khám và chăm sóc sau phẫu thuật', amount: 15000000, percentage: 5 },
+      { item: 'Hỗ trợ đi lại và ăn ở', amount: 7000000, percentage: 2.5 },
+      { item: 'Quản lý và điều phối', amount: 3000000, percentage: 1 },
+    ],
   },
   {
     id: 11,
@@ -258,6 +338,14 @@ export const PROGRAMS = [
     description: 'Tặng xe đạp cho học sinh nghèo vùng xa phải đi bộ đến trường',
     impact: '200 em có xe đạp mới',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Xe đạp học sinh (200 chiếc x 400k)', amount: 80000000, percentage: 80 },
+      { item: 'Phụ kiện: khóa, đèn, chuông, giỏ xe', amount: 10000000, percentage: 10 },
+      { item: 'Bảo hiểm xe đạp (1 năm)', amount: 4000000, percentage: 4 },
+      { item: 'Vận chuyển đến các xã vùng xa', amount: 3000000, percentage: 3 },
+      { item: 'Lớp học an toàn giao thông', amount: 2000000, percentage: 2 },
+      { item: 'Tổ chức lễ trao xe', amount: 1000000, percentage: 1 },
+    ],
   },
   {
     id: 12,
@@ -272,6 +360,14 @@ export const PROGRAMS = [
     description: 'Hỗ trợ y tế và sinh hoạt cho người già cô đơn không nơi nương tựa',
     impact: '100 người già được chăm sóc',
     urgent: false,
+    budgetBreakdown: [
+      { item: 'Khám bệnh và thuốc men (100 người x 1 năm)', amount: 120000000, percentage: 48 },
+      { item: 'Hỗ trợ sinh hoạt hàng tháng', amount: 60000000, percentage: 24 },
+      { item: 'Chăm sóc tại nhà và đi lại', amount: 35000000, percentage: 14 },
+      { item: 'Tổ chức sinh nhật và các ngày lễ', amount: 15000000, percentage: 6 },
+      { item: 'Cải tạo nhà ở cơ bản', amount: 12000000, percentage: 4.8 },
+      { item: 'Quản lý và giám sát chương trình', amount: 8000000, percentage: 3.2 },
+    ],
   },
 ] as const;
 
